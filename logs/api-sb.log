@@ -1,0 +1,241 @@
+2023-10-29 08:53:00,892 INFO tech.noetzold.anPerformaticEcommerce.AnPerformaticEcommerceApplication [restartedMain] Starting AnPerformaticEcommerceApplication using Java 17.0.7 with PID 7480 (C:\Users\Usuário\Documents\Projetos\GitHub\anPerformaticEcommerce\target\classes started by Darlan in C:\Users\Usuário\Documents\Projetos\GitHub\anPerformaticEcommerce)
+2023-10-29 08:53:00,893 INFO tech.noetzold.anPerformaticEcommerce.AnPerformaticEcommerceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2023-10-29 08:53:00,938 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-29 08:53:00,938 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-29 08:53:01,866 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-10-29 08:53:01,867 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-29 08:53:02,008 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 134 ms. Found 2 JPA repository interfaces.
+2023-10-29 08:53:02,021 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-10-29 08:53:02,022 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-10-29 08:53:02,033 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface tech.noetzold.anPerformaticEcommerce.repository.TokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-10-29 08:53:02,034 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface tech.noetzold.anPerformaticEcommerce.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-10-29 08:53:02,035 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2023-10-29 08:53:02,686 WARN io.undertow.websockets.jsr [restartedMain] UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2023-10-29 08:53:02,709 INFO io.undertow.servlet [restartedMain] Initializing Spring embedded WebApplicationContext
+2023-10-29 08:53:02,709 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1770 ms
+2023-10-29 08:53:02,924 INFO org.flywaydb.core.internal.license.VersionPrinter [restartedMain] Flyway Community Edition 9.16.3 by Redgate
+2023-10-29 08:53:02,925 INFO org.flywaydb.core.internal.license.VersionPrinter [restartedMain] See release notes here: https://rd.gt/416ObMi
+2023-10-29 08:53:02,925 INFO org.flywaydb.core.internal.license.VersionPrinter [restartedMain] 
+2023-10-29 08:53:02,932 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2023-10-29 08:53:03,086 INFO com.zaxxer.hikari.pool.HikariPool [restartedMain] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6f80f160
+2023-10-29 08:53:03,087 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2023-10-29 08:53:03,104 INFO org.flywaydb.core.internal.database.base.BaseDatabaseType [restartedMain] Database: jdbc:postgresql://localhost:5432/performance-ecommerce (PostgreSQL 14.5)
+2023-10-29 08:53:03,129 INFO org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory [restartedMain] Schema history table "public"."flyway_schema_history" does not exist yet
+2023-10-29 08:53:03,133 INFO org.flywaydb.core.internal.command.DbValidate [restartedMain] Successfully validated 0 migrations (execution time 00:00.010s)
+2023-10-29 08:53:03,133 WARN org.flywaydb.core.internal.command.DbValidate [restartedMain] No migrations found. Are your locations set up correctly?
+2023-10-29 08:53:03,153 INFO org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory [restartedMain] Creating Schema History table "public"."flyway_schema_history" ...
+2023-10-29 08:53:03,251 INFO org.flywaydb.core.internal.command.DbMigrate [restartedMain] Current version of schema "public": << Empty Schema >>
+2023-10-29 08:53:03,252 INFO org.flywaydb.core.internal.command.DbMigrate [restartedMain] Schema "public" is up to date. No migration necessary.
+2023-10-29 08:53:03,350 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-29 08:53:03,414 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 6.2.13.Final
+2023-10-29 08:53:03,416 INFO org.hibernate.cfg.Environment [restartedMain] HHH000406: Using bytecode reflection optimizer
+2023-10-29 08:53:03,705 INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-29 08:53:04,534 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-10-29 08:53:04,564 DEBUG org.hibernate.SQL [restartedMain] create table _user (id integer not null, email varchar(255), firstname varchar(255), lastname varchar(255), password varchar(255), role varchar(255) check (role in ('USER','ADMIN','MANAGER')), primary key (id))
+2023-10-29 08:53:04,571 DEBUG org.hibernate.SQL [restartedMain] create table token (id integer not null, expired boolean not null, revoked boolean not null, token varchar(255), token_type varchar(255) check (token_type in ('BEARER')), user_id integer, primary key (id))
+2023-10-29 08:53:04,576 DEBUG org.hibernate.SQL [restartedMain] alter table if exists token drop constraint if exists UK_pddrhgwxnms2aceeku9s2ewy5
+2023-10-29 08:53:04,578 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [restartedMain] SQL Warning Code: 0, SQLState: 00000
+2023-10-29 08:53:04,579 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [restartedMain] constraint "uk_pddrhgwxnms2aceeku9s2ewy5" of relation "token" does not exist, skipping
+2023-10-29 08:53:04,579 DEBUG org.hibernate.SQL [restartedMain] alter table if exists token add constraint UK_pddrhgwxnms2aceeku9s2ewy5 unique (token)
+2023-10-29 08:53:04,582 DEBUG org.hibernate.SQL [restartedMain] create sequence _user_seq start with 1 increment by 50
+2023-10-29 08:53:04,584 DEBUG org.hibernate.SQL [restartedMain] create sequence token_seq start with 1 increment by 50
+2023-10-29 08:53:04,585 DEBUG org.hibernate.SQL [restartedMain] alter table if exists token add constraint FKiblu4cjwvyntq3ugo31klp1c6 foreign key (user_id) references _user
+2023-10-29 08:53:04,590 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-29 08:53:04,680 DEBUG org.hibernate.stat.internal.StatisticsInitiator [restartedMain] Statistics initialized [enabled=false]
+2023-10-29 08:53:04,882 INFO org.springframework.data.jpa.repository.query.QueryEnhancerFactory [restartedMain] Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-10-29 08:53:05,316 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-29 08:53:06,449 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 14 endpoint(s) beneath base path '/actuator'
+2023-10-29 08:53:06,505 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6a7815cf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3fcf2eff, org.springframework.security.web.context.SecurityContextHolderFilter@1c8a5843, org.springframework.security.web.header.HeaderWriterFilter@643b9437, org.springframework.security.web.authentication.logout.LogoutFilter@1371b1ea, tech.noetzold.anPerformaticEcommerce.security.configuration.JwtAuthenticationFilter@156b6524, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2820485d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6dc774fd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@37e29fee, org.springframework.security.web.session.SessionManagementFilter@3a7248de, org.springframework.security.web.access.ExceptionTranslationFilter@3893b529, org.springframework.security.web.access.intercept.AuthorizationFilter@49839c3b]
+2023-10-29 08:53:06,915 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2023-10-29 08:53:06,971 INFO io.undertow [restartedMain] starting server: Undertow - 2.3.10.Final
+2023-10-29 08:53:06,979 INFO org.xnio [restartedMain] XNIO version 3.8.8.Final
+2023-10-29 08:53:06,987 INFO org.xnio.nio [restartedMain] XNIO NIO Implementation Version 3.8.8.Final
+2023-10-29 08:53:07,071 INFO org.jboss.threads [restartedMain] JBoss Threads version 3.5.0.Final
+2023-10-29 08:53:07,129 INFO org.springframework.boot.web.embedded.undertow.UndertowWebServer [restartedMain] Undertow started on port(s) 8091 (http)
+2023-10-29 08:53:07,140 INFO tech.noetzold.anPerformaticEcommerce.AnPerformaticEcommerceApplication [restartedMain] Started AnPerformaticEcommerceApplication in 6.528 seconds (process running for 7.067)
+2023-10-29 08:53:07,222 DEBUG org.hibernate.SQL [restartedMain] select nextval('_user_seq')
+2023-10-29 08:53:07,245 DEBUG org.hibernate.SQL [restartedMain] insert into _user (email,firstname,lastname,password,role,id) values (?,?,?,?,?,?)
+2023-10-29 08:53:07,253 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger [restartedMain] 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-10-29 08:53:07,274 ERROR org.springframework.boot.SpringApplication [restartedMain] Application run failed
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:774)
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:755)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at tech.noetzold.anPerformaticEcommerce.AnPerformaticEcommerceApplication.main(AnPerformaticEcommerceApplication.java:19)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: io.jsonwebtoken.lang.UnknownClassException: Unable to load class named [io.jsonwebtoken.impl.DefaultJwtBuilder] from the thread context, current, or system/application ClassLoaders.  All heuristics have been exhausted.  Class could not be found.  Have you remembered to include the jjwt-impl.jar in your runtime classpath?
+	at io.jsonwebtoken.lang.Classes.forName(Classes.java:93)
+	at io.jsonwebtoken.lang.Classes.newInstance(Classes.java:137)
+	at io.jsonwebtoken.Jwts.builder(Jwts.java:144)
+	at tech.noetzold.anPerformaticEcommerce.service.JwtService.buildToken(JwtService.java:60)
+	at tech.noetzold.anPerformaticEcommerce.service.JwtService.generateToken(JwtService.java:45)
+	at tech.noetzold.anPerformaticEcommerce.service.JwtService.generateToken(JwtService.java:38)
+	at tech.noetzold.anPerformaticEcommerce.service.AuthenticationService.register(AuthenticationService.java:45)
+	at tech.noetzold.anPerformaticEcommerce.AnPerformaticEcommerceApplication.lambda$commandLineRunner$0(AnPerformaticEcommerceApplication.java:34)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:771)
+	... 19 common frames omitted
+2023-10-29 08:53:07,281 INFO io.undertow [restartedMain] stopping server: Undertow - 2.3.10.Final
+2023-10-29 08:53:07,312 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-29 08:53:07,315 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Shutdown initiated...
+2023-10-29 08:53:07,318 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Shutdown completed.
+2023-10-29 08:54:48,659 INFO tech.noetzold.anPerformaticEcommerce.AnPerformaticEcommerceApplication [restartedMain] Starting AnPerformaticEcommerceApplication using Java 17.0.7 with PID 26960 (C:\Users\Usuário\Documents\Projetos\GitHub\anPerformaticEcommerce\target\classes started by Darlan in C:\Users\Usuário\Documents\Projetos\GitHub\anPerformaticEcommerce)
+2023-10-29 08:54:48,660 INFO tech.noetzold.anPerformaticEcommerce.AnPerformaticEcommerceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2023-10-29 08:54:48,708 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-29 08:54:48,708 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-29 08:54:49,672 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-10-29 08:54:49,673 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-29 08:54:49,783 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 104 ms. Found 2 JPA repository interfaces.
+2023-10-29 08:54:49,796 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-10-29 08:54:49,797 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-10-29 08:54:49,808 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface tech.noetzold.anPerformaticEcommerce.repository.TokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-10-29 08:54:49,809 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface tech.noetzold.anPerformaticEcommerce.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-10-29 08:54:49,809 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2023-10-29 08:54:50,439 WARN io.undertow.websockets.jsr [restartedMain] UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2023-10-29 08:54:50,460 INFO io.undertow.servlet [restartedMain] Initializing Spring embedded WebApplicationContext
+2023-10-29 08:54:50,460 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1751 ms
+2023-10-29 08:54:50,669 INFO org.flywaydb.core.internal.license.VersionPrinter [restartedMain] Flyway Community Edition 9.16.3 by Redgate
+2023-10-29 08:54:50,670 INFO org.flywaydb.core.internal.license.VersionPrinter [restartedMain] See release notes here: https://rd.gt/416ObMi
+2023-10-29 08:54:50,670 INFO org.flywaydb.core.internal.license.VersionPrinter [restartedMain] 
+2023-10-29 08:54:50,679 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2023-10-29 08:54:50,845 INFO com.zaxxer.hikari.pool.HikariPool [restartedMain] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@375b9dca
+2023-10-29 08:54:50,847 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2023-10-29 08:54:50,862 INFO org.flywaydb.core.internal.database.base.BaseDatabaseType [restartedMain] Database: jdbc:postgresql://localhost:5432/performance-ecommerce (PostgreSQL 14.5)
+2023-10-29 08:54:50,895 INFO org.flywaydb.core.internal.command.DbValidate [restartedMain] Successfully validated 0 migrations (execution time 00:00.014s)
+2023-10-29 08:54:50,895 WARN org.flywaydb.core.internal.command.DbValidate [restartedMain] No migrations found. Are your locations set up correctly?
+2023-10-29 08:54:50,945 INFO org.flywaydb.core.internal.command.DbMigrate [restartedMain] Current version of schema "public": << Empty Schema >>
+2023-10-29 08:54:50,946 INFO org.flywaydb.core.internal.command.DbMigrate [restartedMain] Schema "public" is up to date. No migration necessary.
+2023-10-29 08:54:51,022 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-29 08:54:51,070 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 6.2.13.Final
+2023-10-29 08:54:51,072 INFO org.hibernate.cfg.Environment [restartedMain] HHH000406: Using bytecode reflection optimizer
+2023-10-29 08:54:51,297 INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-29 08:54:52,121 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-10-29 08:54:52,171 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-29 08:54:52,246 DEBUG org.hibernate.stat.internal.StatisticsInitiator [restartedMain] Statistics initialized [enabled=false]
+2023-10-29 08:54:52,441 INFO org.springframework.data.jpa.repository.query.QueryEnhancerFactory [restartedMain] Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-10-29 08:54:52,870 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-29 08:54:53,973 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 14 endpoint(s) beneath base path '/actuator'
+2023-10-29 08:54:54,026 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3d193162, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@14a64505, org.springframework.security.web.context.SecurityContextHolderFilter@1bd52ef0, org.springframework.security.web.header.HeaderWriterFilter@296994e6, org.springframework.security.web.authentication.logout.LogoutFilter@7fe22a42, tech.noetzold.anPerformaticEcommerce.security.configuration.JwtAuthenticationFilter@47fc3890, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@38b75bbd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@740b2400, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2cff3d41, org.springframework.security.web.session.SessionManagementFilter@7eeaa48e, org.springframework.security.web.access.ExceptionTranslationFilter@68c85241, org.springframework.security.web.access.intercept.AuthorizationFilter@527f7d31]
+2023-10-29 08:54:54,399 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2023-10-29 08:54:54,442 INFO io.undertow [restartedMain] starting server: Undertow - 2.3.10.Final
+2023-10-29 08:54:54,448 INFO org.xnio [restartedMain] XNIO version 3.8.8.Final
+2023-10-29 08:54:54,454 INFO org.xnio.nio [restartedMain] XNIO NIO Implementation Version 3.8.8.Final
+2023-10-29 08:54:54,512 INFO org.jboss.threads [restartedMain] JBoss Threads version 3.5.0.Final
+2023-10-29 08:54:54,560 INFO org.springframework.boot.web.embedded.undertow.UndertowWebServer [restartedMain] Undertow started on port(s) 8091 (http)
+2023-10-29 08:54:54,572 INFO tech.noetzold.anPerformaticEcommerce.AnPerformaticEcommerceApplication [restartedMain] Started AnPerformaticEcommerceApplication in 6.186 seconds (process running for 6.765)
+2023-10-29 08:54:54,669 DEBUG org.hibernate.SQL [restartedMain] select nextval('_user_seq')
+2023-10-29 08:54:54,696 DEBUG org.hibernate.SQL [restartedMain] insert into _user (email,firstname,lastname,password,role,id) values (?,?,?,?,?,?)
+2023-10-29 08:54:54,723 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger [restartedMain] 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-10-29 08:54:54,742 ERROR org.springframework.boot.SpringApplication [restartedMain] Application run failed
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:774)
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:755)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at tech.noetzold.anPerformaticEcommerce.AnPerformaticEcommerceApplication.main(AnPerformaticEcommerceApplication.java:19)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: io.jsonwebtoken.io.DecodingException: Illegal base64 character: '-'
+	at io.jsonwebtoken.io.Base64.ctoi(Base64.java:221)
+	at io.jsonwebtoken.io.Base64.decodeFast(Base64.java:270)
+	at io.jsonwebtoken.io.Base64Decoder.decode(Base64Decoder.java:36)
+	at io.jsonwebtoken.io.Base64Decoder.decode(Base64Decoder.java:23)
+	at io.jsonwebtoken.io.ExceptionPropagatingDecoder.decode(ExceptionPropagatingDecoder.java:36)
+	at tech.noetzold.anPerformaticEcommerce.service.JwtService.getSignInKey(JwtService.java:92)
+	at tech.noetzold.anPerformaticEcommerce.service.JwtService.buildToken(JwtService.java:65)
+	at tech.noetzold.anPerformaticEcommerce.service.JwtService.generateToken(JwtService.java:45)
+	at tech.noetzold.anPerformaticEcommerce.service.JwtService.generateToken(JwtService.java:38)
+	at tech.noetzold.anPerformaticEcommerce.service.AuthenticationService.register(AuthenticationService.java:45)
+	at tech.noetzold.anPerformaticEcommerce.AnPerformaticEcommerceApplication.lambda$commandLineRunner$0(AnPerformaticEcommerceApplication.java:34)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:771)
+	... 19 common frames omitted
+2023-10-29 08:54:54,750 INFO io.undertow [restartedMain] stopping server: Undertow - 2.3.10.Final
+2023-10-29 08:54:54,781 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-29 08:54:54,783 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Shutdown initiated...
+2023-10-29 08:54:54,786 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Shutdown completed.
+2023-10-29 08:55:45,975 INFO tech.noetzold.anPerformaticEcommerce.AnPerformaticEcommerceApplication [restartedMain] Starting AnPerformaticEcommerceApplication using Java 17.0.7 with PID 528 (C:\Users\Usuário\Documents\Projetos\GitHub\anPerformaticEcommerce\target\classes started by Darlan in C:\Users\Usuário\Documents\Projetos\GitHub\anPerformaticEcommerce)
+2023-10-29 08:55:45,977 INFO tech.noetzold.anPerformaticEcommerce.AnPerformaticEcommerceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2023-10-29 08:55:46,033 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-29 08:55:46,033 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-29 08:55:46,973 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-10-29 08:55:46,974 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-29 08:55:47,098 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 116 ms. Found 2 JPA repository interfaces.
+2023-10-29 08:55:47,109 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-10-29 08:55:47,110 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-10-29 08:55:47,122 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface tech.noetzold.anPerformaticEcommerce.repository.TokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-10-29 08:55:47,123 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface tech.noetzold.anPerformaticEcommerce.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-10-29 08:55:47,123 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2023-10-29 08:55:47,736 WARN io.undertow.websockets.jsr [restartedMain] UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2023-10-29 08:55:47,756 INFO io.undertow.servlet [restartedMain] Initializing Spring embedded WebApplicationContext
+2023-10-29 08:55:47,756 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1722 ms
+2023-10-29 08:55:47,978 INFO org.flywaydb.core.internal.license.VersionPrinter [restartedMain] Flyway Community Edition 9.16.3 by Redgate
+2023-10-29 08:55:47,978 INFO org.flywaydb.core.internal.license.VersionPrinter [restartedMain] See release notes here: https://rd.gt/416ObMi
+2023-10-29 08:55:47,978 INFO org.flywaydb.core.internal.license.VersionPrinter [restartedMain] 
+2023-10-29 08:55:47,984 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2023-10-29 08:55:48,161 INFO com.zaxxer.hikari.pool.HikariPool [restartedMain] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@73dd5a99
+2023-10-29 08:55:48,163 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2023-10-29 08:55:48,179 INFO org.flywaydb.core.internal.database.base.BaseDatabaseType [restartedMain] Database: jdbc:postgresql://localhost:5432/performance-ecommerce (PostgreSQL 14.5)
+2023-10-29 08:55:48,212 INFO org.flywaydb.core.internal.command.DbValidate [restartedMain] Successfully validated 0 migrations (execution time 00:00.012s)
+2023-10-29 08:55:48,212 WARN org.flywaydb.core.internal.command.DbValidate [restartedMain] No migrations found. Are your locations set up correctly?
+2023-10-29 08:55:48,253 INFO org.flywaydb.core.internal.command.DbMigrate [restartedMain] Current version of schema "public": << Empty Schema >>
+2023-10-29 08:55:48,254 INFO org.flywaydb.core.internal.command.DbMigrate [restartedMain] Schema "public" is up to date. No migration necessary.
+2023-10-29 08:55:48,353 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-29 08:55:48,406 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 6.2.13.Final
+2023-10-29 08:55:48,408 INFO org.hibernate.cfg.Environment [restartedMain] HHH000406: Using bytecode reflection optimizer
+2023-10-29 08:55:48,651 INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-29 08:55:49,303 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-10-29 08:55:49,353 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-29 08:55:49,432 DEBUG org.hibernate.stat.internal.StatisticsInitiator [restartedMain] Statistics initialized [enabled=false]
+2023-10-29 08:55:49,637 INFO org.springframework.data.jpa.repository.query.QueryEnhancerFactory [restartedMain] Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-10-29 08:55:50,073 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-29 08:55:51,141 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 14 endpoint(s) beneath base path '/actuator'
+2023-10-29 08:55:51,183 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@121a7089, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1077b85, org.springframework.security.web.context.SecurityContextHolderFilter@45bba475, org.springframework.security.web.header.HeaderWriterFilter@3e7ba7a, org.springframework.security.web.authentication.logout.LogoutFilter@376267b0, tech.noetzold.anPerformaticEcommerce.security.configuration.JwtAuthenticationFilter@556a3322, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@f13b8cf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1cee62bb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3d856ab1, org.springframework.security.web.session.SessionManagementFilter@123f8709, org.springframework.security.web.access.ExceptionTranslationFilter@2973c210, org.springframework.security.web.access.intercept.AuthorizationFilter@31344748]
+2023-10-29 08:55:51,572 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2023-10-29 08:55:51,627 INFO io.undertow [restartedMain] starting server: Undertow - 2.3.10.Final
+2023-10-29 08:55:51,633 INFO org.xnio [restartedMain] XNIO version 3.8.8.Final
+2023-10-29 08:55:51,641 INFO org.xnio.nio [restartedMain] XNIO NIO Implementation Version 3.8.8.Final
+2023-10-29 08:55:51,701 INFO org.jboss.threads [restartedMain] JBoss Threads version 3.5.0.Final
+2023-10-29 08:55:51,747 INFO org.springframework.boot.web.embedded.undertow.UndertowWebServer [restartedMain] Undertow started on port(s) 8091 (http)
+2023-10-29 08:55:51,759 INFO tech.noetzold.anPerformaticEcommerce.AnPerformaticEcommerceApplication [restartedMain] Started AnPerformaticEcommerceApplication in 6.046 seconds (process running for 6.599)
+2023-10-29 08:55:51,856 DEBUG org.hibernate.SQL [restartedMain] select nextval('_user_seq')
+2023-10-29 08:55:51,880 DEBUG org.hibernate.SQL [restartedMain] insert into _user (email,firstname,lastname,password,role,id) values (?,?,?,?,?,?)
+2023-10-29 08:55:51,944 DEBUG org.hibernate.SQL [restartedMain] select nextval('token_seq')
+2023-10-29 08:55:51,946 DEBUG org.hibernate.SQL [restartedMain] insert into token (expired,revoked,token,token_type,user_id,id) values (?,?,?,?,?,?)
+2023-10-29 08:55:52,016 DEBUG org.hibernate.SQL [restartedMain] insert into _user (email,firstname,lastname,password,role,id) values (?,?,?,?,?,?)
+2023-10-29 08:55:52,020 DEBUG org.hibernate.SQL [restartedMain] select nextval('token_seq')
+2023-10-29 08:55:52,020 DEBUG org.hibernate.SQL [restartedMain] insert into token (expired,revoked,token,token_type,user_id,id) values (?,?,?,?,?,?)
+2023-10-29 09:53:11,641 INFO io.undertow [SpringApplicationShutdownHook] stopping server: Undertow - 2.3.10.Final
+2023-10-29 09:53:11,677 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-29 09:53:11,680 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-10-29 09:53:11,682 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
