@@ -1,4 +1,4 @@
-package tech.noetzold.anPerformaticEcommerce.controller;
+package tech.noetzold.anPerformaticEcommerce.security.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import tech.noetzold.anPerformaticEcommerce.model.user.AuthenticationRequest;
-import tech.noetzold.anPerformaticEcommerce.model.user.AuthenticationResponse;
-import tech.noetzold.anPerformaticEcommerce.model.user.RegisterRequest;
-import tech.noetzold.anPerformaticEcommerce.service.AuthenticationService;
+import tech.noetzold.anPerformaticEcommerce.security.user.AuthenticationRequest;
+import tech.noetzold.anPerformaticEcommerce.security.user.AuthenticationResponse;
+import tech.noetzold.anPerformaticEcommerce.security.user.RegisterRequest;
+import tech.noetzold.anPerformaticEcommerce.security.service.AuthenticationService;
 
 import java.io.IOException;
 

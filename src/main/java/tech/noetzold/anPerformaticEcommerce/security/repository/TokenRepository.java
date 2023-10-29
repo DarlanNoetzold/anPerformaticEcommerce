@@ -1,4 +1,4 @@
-package tech.noetzold.anPerformaticEcommerce.repository;
+package tech.noetzold.anPerformaticEcommerce.security.repository;
 
 import java.util.List;
 import java.util.Optional;

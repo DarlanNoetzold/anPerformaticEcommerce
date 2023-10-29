@@ -5,11 +5,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
-import tech.noetzold.anPerformaticEcommerce.model.user.RegisterRequest;
-import tech.noetzold.anPerformaticEcommerce.service.AuthenticationService;
+import tech.noetzold.anPerformaticEcommerce.security.user.RegisterRequest;
+import tech.noetzold.anPerformaticEcommerce.security.service.AuthenticationService;
 
-import static tech.noetzold.anPerformaticEcommerce.model.user.Role.ADMIN;
-import static tech.noetzold.anPerformaticEcommerce.model.user.Role.MANAGER;
+import static tech.noetzold.anPerformaticEcommerce.security.user.Role.ADMIN;
+import static tech.noetzold.anPerformaticEcommerce.security.user.Role.MANAGER;
 
 @SpringBootApplication
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")

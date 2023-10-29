@@ -1,4 +1,4 @@
-package tech.noetzold.anPerformaticEcommerce.service;
+package tech.noetzold.anPerformaticEcommerce.security.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

@@ -1,4 +1,4 @@
-package tech.noetzold.anPerformaticEcommerce.model.user;
+package tech.noetzold.anPerformaticEcommerce.security.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

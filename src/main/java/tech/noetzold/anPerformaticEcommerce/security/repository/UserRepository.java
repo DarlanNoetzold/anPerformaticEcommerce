@@ -1,8 +1,8 @@
-package tech.noetzold.anPerformaticEcommerce.repository;
+package tech.noetzold.anPerformaticEcommerce.security.repository;
 
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
-import tech.noetzold.anPerformaticEcommerce.model.user.User;
+import tech.noetzold.anPerformaticEcommerce.security.user.User;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 

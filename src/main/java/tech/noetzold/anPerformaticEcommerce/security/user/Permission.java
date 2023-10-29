@@ -1,4 +1,4 @@
-package tech.noetzold.anPerformaticEcommerce.model.user;
+package tech.noetzold.anPerformaticEcommerce.security.user;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

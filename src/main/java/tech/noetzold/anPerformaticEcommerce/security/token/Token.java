@@ -13,7 +13,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import tech.noetzold.anPerformaticEcommerce.model.user.User;
+import tech.noetzold.anPerformaticEcommerce.security.user.User;
 
 @Data
 @Builder

@@ -1,12 +1,12 @@
-package tech.noetzold.anPerformaticEcommerce.service;
+package tech.noetzold.anPerformaticEcommerce.security.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import tech.noetzold.anPerformaticEcommerce.model.user.ChangePasswordRequest;
-import tech.noetzold.anPerformaticEcommerce.model.user.User;
-import tech.noetzold.anPerformaticEcommerce.repository.UserRepository;
+import tech.noetzold.anPerformaticEcommerce.security.user.ChangePasswordRequest;
+import tech.noetzold.anPerformaticEcommerce.security.user.User;
+import tech.noetzold.anPerformaticEcommerce.security.repository.UserRepository;
 
 import java.security.Principal;
 

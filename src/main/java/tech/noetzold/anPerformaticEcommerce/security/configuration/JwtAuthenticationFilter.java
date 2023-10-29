@@ -5,12 +5,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import java.beans.Transient;
 import java.io.IOException;
-import java.security.Security;
 
-import jakarta.transaction.TransactionScoped;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -20,8 +16,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-import tech.noetzold.anPerformaticEcommerce.repository.TokenRepository;
-import tech.noetzold.anPerformaticEcommerce.service.JwtService;
+import tech.noetzold.anPerformaticEcommerce.security.repository.TokenRepository;
+import tech.noetzold.anPerformaticEcommerce.security.service.JwtService;
 
 @Component
 @RequiredArgsConstructor

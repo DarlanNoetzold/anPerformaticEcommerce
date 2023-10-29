@@ -4,7 +4,7 @@ import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import tech.noetzold.anPerformaticEcommerce.model.user.User;
+import tech.noetzold.anPerformaticEcommerce.security.user.User;
 
 import java.util.Optional;
 

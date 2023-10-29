@@ -1,4 +1,4 @@
-package tech.noetzold.anPerformaticEcommerce.service;
+package tech.noetzold.anPerformaticEcommerce.security.service;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -8,17 +8,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Service;
-import tech.noetzold.anPerformaticEcommerce.model.user.AuthenticationRequest;
-import tech.noetzold.anPerformaticEcommerce.model.user.AuthenticationResponse;
-import tech.noetzold.anPerformaticEcommerce.model.user.RegisterRequest;
-import tech.noetzold.anPerformaticEcommerce.model.user.User;
-import tech.noetzold.anPerformaticEcommerce.repository.TokenRepository;
-import tech.noetzold.anPerformaticEcommerce.repository.UserRepository;
+import tech.noetzold.anPerformaticEcommerce.security.user.AuthenticationRequest;
+import tech.noetzold.anPerformaticEcommerce.security.user.AuthenticationResponse;
+import tech.noetzold.anPerformaticEcommerce.security.user.RegisterRequest;
+import tech.noetzold.anPerformaticEcommerce.security.user.User;
+import tech.noetzold.anPerformaticEcommerce.security.repository.TokenRepository;
+import tech.noetzold.anPerformaticEcommerce.security.repository.UserRepository;
 import tech.noetzold.anPerformaticEcommerce.security.token.Token;
 import tech.noetzold.anPerformaticEcommerce.security.token.TokenType;
 

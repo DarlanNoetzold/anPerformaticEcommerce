@@ -1,4 +1,4 @@
-package tech.noetzold.anPerformaticEcommerce.controller;
+package tech.noetzold.anPerformaticEcommerce.security.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/management")
 @Tag(name = "Management")
 public class ManagementController {
-
 
     @Operation(
             description = "Get endpoint for manager",
