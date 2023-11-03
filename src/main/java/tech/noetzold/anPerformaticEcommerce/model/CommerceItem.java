@@ -20,6 +20,7 @@ public class CommerceItem {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID commerceItemId;
 
+    @OneToOne
     private SkuModel skuModel;
 
     @Temporal(TemporalType.DATE)
