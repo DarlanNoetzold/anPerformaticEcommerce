@@ -20,5 +20,5 @@ public class ShopCart {
     @OneToOne
     private Order order;
 
-    
+
 }
