@@ -17,10 +17,12 @@ public class PaymentModelService {
     @Autowired
     PaymentModelRepository paymentModelRepository;
 
+    @Transactional
     public List<PaymentModel> findAllPaymentModel(){
         return paymentModelRepository.findAll();
     }
 
+    @Transactional
     public PaymentModel findPaymentModelById(UUID id){
         return paymentModelRepository.findById(id).orElse(null);
     }
