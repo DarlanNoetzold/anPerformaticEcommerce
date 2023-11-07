@@ -17,10 +17,12 @@ public class PromotionModelService {
     @Autowired
     PromotionModelRepository promotionModelRepository;
 
+    @Transactional
     public List<PromotionModel> findAllPromotionModel(){
         return promotionModelRepository.findAll();
     }
 
+    @Transactional
     public PromotionModel findPromotionModelById(UUID id){
         return promotionModelRepository.findById(id).orElse(null);
     }
