@@ -17,10 +17,12 @@ public class InvoiceModelService {
     @Autowired
     InvoiceModelRepository invoiceModelRepository;
 
+    @Transactional
     public List<InvoiceModel> findAllInvoiceModel(){
         return invoiceModelRepository.findAll();
     }
 
+    @Transactional
     public InvoiceModel findInvoiceModelById(UUID id){
         return invoiceModelRepository.findById(id).orElse(null);
     }
