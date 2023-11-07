@@ -17,10 +17,12 @@ public class BoletoModelService {
     @Autowired
     BoletoModelRepository boletoModelRepository;
 
+    @Transactional
     public List<BoletoModel> findAllBoletoModel(){
         return boletoModelRepository.findAll();
     }
 
+    @Transactional
     public BoletoModel findBoletoModelById(UUID id){
         return boletoModelRepository.findById(id).orElse(null);
     }
