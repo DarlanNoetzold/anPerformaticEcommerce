@@ -17,10 +17,12 @@ public class AddressModelService {
     @Autowired
     AddressModelRepository addressModelRepository;
 
+    @Transactional
     public List<AddressModel> findAllAddressModel(){
         return addressModelRepository.findAll();
     }
 
+    @Transactional
     public AddressModel findAddressModelById(UUID id){
         return addressModelRepository.findById(id).orElse(null);
     }
