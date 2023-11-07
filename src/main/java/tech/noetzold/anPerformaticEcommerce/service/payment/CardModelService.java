@@ -17,10 +17,12 @@ public class CardModelService {
     @Autowired
     CardModelRepository cardModelRepository;
 
+    @Transactional
     public List<CardModel> findAllCardModel(){
         return cardModelRepository.findAll();
     }
 
+    @Transactional
     public CardModel findCardModelById(UUID id){
         return cardModelRepository.findById(id).orElse(null);
     }
