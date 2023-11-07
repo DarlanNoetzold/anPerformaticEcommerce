@@ -17,10 +17,12 @@ public class PixModelService {
     @Autowired
     PixModelRepository pixModelRepository;
 
+    @Transactional
     public List<PixModel> findAllPixModel(){
         return pixModelRepository.findAll();
     }
 
+    @Transactional
     public PixModel findPixModelById(UUID id){
         return pixModelRepository.findById(id).orElse(null);
     }
