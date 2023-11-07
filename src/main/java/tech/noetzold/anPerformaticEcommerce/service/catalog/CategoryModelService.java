@@ -17,10 +17,12 @@ public class CategoryModelService {
     @Autowired
     CategoryModelRepository categoryModelRepository;
 
+    @Transactional
     public List<CategoryModel> findAllCategoryModel(){
         return categoryModelRepository.findAll();
     }
 
+    @Transactional
     public CategoryModel findCategoryModelById(UUID id){
         return categoryModelRepository.findById(id).orElse(null);
     }
