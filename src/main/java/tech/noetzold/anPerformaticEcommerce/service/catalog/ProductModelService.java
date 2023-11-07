@@ -17,10 +17,12 @@ public class ProductModelService {
     @Autowired
     ProductModelRepository productModelRepository;
 
+    @Transactional
     public List<ProductModel> findAllProductModel(){
         return productModelRepository.findAll();
     }
 
+    @Transactional
     public ProductModel findProductModelById(UUID id){
         return productModelRepository.findById(id).orElse(null);
     }
