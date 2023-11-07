@@ -18,10 +18,12 @@ public class KeyWordModelService {
     @Autowired
     KeyWordModelRepository keyWordModelRepository;
 
+    @Transactional
     public List<KeyWordModel> findAllKeyWordModel(){
         return keyWordModelRepository.findAll();
     }
 
+    @Transactional
     public KeyWordModel findKeyWordModelById(UUID id){
         return keyWordModelRepository.findById(id).orElse(null);
     }
