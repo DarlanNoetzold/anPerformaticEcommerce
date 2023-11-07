@@ -17,10 +17,12 @@ public class ShippingModelService {
     @Autowired
     ShippingModelRepository shippingModelRepository;
 
+    @Transactional
     public List<ShippingModel> findAllShippingModel(){
         return shippingModelRepository.findAll();
     }
 
+    @Transactional
     public ShippingModel findShippingModelById(UUID id){
         return shippingModelRepository.findById(id).orElse(null);
     }
