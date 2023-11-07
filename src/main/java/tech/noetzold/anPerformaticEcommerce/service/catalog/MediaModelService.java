@@ -17,10 +17,12 @@ public class MediaModelService {
     @Autowired
     MediaModelRepository mediaModelRepository;
 
+    @Transactional
     public List<MediaModel> findAllMediaModel(){
         return mediaModelRepository.findAll();
     }
 
+    @Transactional
     public MediaModel findMediaModelById(UUID id){
         return mediaModelRepository.findById(id).orElse(null);
     }
