@@ -17,10 +17,12 @@ public class CouponModelService {
     @Autowired
     CouponModelRepository couponModelRepository;
 
+    @Transactional
     public List<CouponModel> findAllCouponModel(){
         return couponModelRepository.findAll();
     }
 
+    @Transactional
     public CouponModel findCouponModelById(UUID id){
         return couponModelRepository.findById(id).orElse(null);
     }
