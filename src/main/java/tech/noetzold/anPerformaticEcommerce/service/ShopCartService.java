@@ -17,10 +17,12 @@ public class ShopCartService {
     @Autowired
     ShopCartRepository shopCartRepository;
 
+    @Transactional
     public List<ShopCart> findAllShopCart(){
         return shopCartRepository.findAll();
     }
 
+    @Transactional
     public ShopCart findShopCartById(UUID id){
         return shopCartRepository.findById(id).orElse(null);
     }
