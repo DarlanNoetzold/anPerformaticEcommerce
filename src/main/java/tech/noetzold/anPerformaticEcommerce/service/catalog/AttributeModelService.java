@@ -17,10 +17,12 @@ public class AttributeModelService {
     @Autowired
     AttributeModelRepository attributeModelRepository;
 
+    @Transactional
     public List<AttributeModel> findAllAttributeModel(){
         return attributeModelRepository.findAll();
     }
 
+    @Transactional
     public AttributeModel findAttributeModelById(UUID id){
         return attributeModelRepository.findById(id).orElse(null);
     }
