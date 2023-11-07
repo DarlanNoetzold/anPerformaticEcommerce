@@ -17,10 +17,12 @@ public class OrderService {
     @Autowired
     OrderRepository orderRepository;
 
+    @Transactional
     public List<Order> findAllOrder(){
         return orderRepository.findAll();
     }
 
+    @Transactional
     public Order findOrderById(UUID id){
         return orderRepository.findById(id).orElse(null);
     }
