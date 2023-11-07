@@ -17,10 +17,12 @@ public class CommerceItemService {
     @Autowired
     CommerceItemRepository commerceItemRepository;
 
+    @Transactional
     public List<CommerceItem> findAllCommerceItem(){
         return commerceItemRepository.findAll();
     }
 
+    @Transactional
     public CommerceItem findCommerceItemById(UUID id){
         return commerceItemRepository.findById(id).orElse(null);
     }
