@@ -17,10 +17,12 @@ public class PaypalModelService {
     @Autowired
     PaypalModelRepository paypalModelRepository;
 
+    @Transactional
     public List<PaypalModel> findAllPaypalModel(){
         return paypalModelRepository.findAll();
     }
 
+    @Transactional
     public PaypalModel findPaypalModelById(UUID id){
         return paypalModelRepository.findById(id).orElse(null);
     }
