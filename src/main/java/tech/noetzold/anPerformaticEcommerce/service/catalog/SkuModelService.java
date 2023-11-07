@@ -17,10 +17,12 @@ public class SkuModelService {
     @Autowired
     SkuModelRepository skuModelRepository;
 
+    @Transactional
     public List<SkuModel> findAllSkuModel(){
         return skuModelRepository.findAll();
     }
 
+    @Transactional
     public SkuModel findSkuModelById(UUID id){
         return skuModelRepository.findById(id).orElse(null);
     }
