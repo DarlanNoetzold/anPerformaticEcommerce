@@ -17,10 +17,12 @@ public class CustomerModelService {
     @Autowired
     CustomerModelRepository customerModelRepository;
 
+    @Transactional
     public List<CustomerModel> findAllCustomerModel(){
         return customerModelRepository.findAll();
     }
 
+    @Transactional
     public CustomerModel findCustomerModelById(UUID id){
         return customerModelRepository.findById(id).orElse(null);
     }
