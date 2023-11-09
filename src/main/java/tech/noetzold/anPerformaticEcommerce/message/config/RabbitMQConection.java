@@ -31,18 +31,20 @@ public class RabbitMQConection {
 
     @PostConstruct
     private void increase(){
-        Queue testQueue = this.fila(RabbitmqConstantes.FILA_TEST);
-
-
-        DirectExchange exchange = this.directExchange();
-
-        Binding ligacao = this.binding(testQueue, exchange);
-
+        Queue testQueue = this.fila(RabbitmqQueues.FILA_TEST);
+        DirectExchange testExchange = this.directExchange();
+        Binding testBiding = this.binding(testQueue, testExchange);
 
         this.amqpAdmin.declareQueue(testQueue);
+        this.amqpAdmin.declareExchange(testExchange);
+        this.amqpAdmin.declareBinding(testBiding);
 
-        this.amqpAdmin.declareExchange(exchange);
+        Queue cartQueue = this.fila(RabbitmqQueues.SHOP_CART);
+        DirectExchange cartExchange = this.directExchange();
+        Binding cartBiding = this.binding(cartQueue, cartExchange);
 
-        this.amqpAdmin.declareBinding(ligacao);
+        this.amqpAdmin.declareQueue(cartQueue);
+        this.amqpAdmin.declareExchange(cartExchange);
+        this.amqpAdmin.declareBinding(cartBiding);
     }
 }
