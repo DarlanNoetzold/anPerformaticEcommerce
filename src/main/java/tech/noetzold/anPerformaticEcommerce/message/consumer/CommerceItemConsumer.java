@@ -7,11 +7,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
-import tech.noetzold.anPerformaticEcommerce.controller.CommerceItemController;
+import org.springframework.stereotype.Component;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.CommerceItem;
 import tech.noetzold.anPerformaticEcommerce.service.CommerceItemService;
 
+@Component
 public class CommerceItemConsumer {
 
     @Autowired
