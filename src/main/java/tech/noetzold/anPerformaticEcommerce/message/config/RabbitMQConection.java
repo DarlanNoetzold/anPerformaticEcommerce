@@ -78,5 +78,69 @@ public class RabbitMQConection {
         this.amqpAdmin.declareQueue(shippingQueue);
         this.amqpAdmin.declareExchange(shippingExchange);
         this.amqpAdmin.declareBinding(shippingBiding);
+
+        Queue promotionQueue = this.fila(RabbitmqQueues.PROMOTION_QUEUE);
+        DirectExchange promotionExchange = this.directExchange();
+        Binding promotionBiding = this.binding(cartQueue, cartExchange);
+
+        this.amqpAdmin.declareQueue(promotionQueue);
+        this.amqpAdmin.declareExchange(promotionExchange);
+        this.amqpAdmin.declareBinding(promotionBiding);
+
+        Queue couponQueue = this.fila(RabbitmqQueues.COUPON_QUEUE);
+        DirectExchange couponExchange = this.directExchange();
+        Binding couponBiding = this.binding(cartQueue, cartExchange);
+
+        this.amqpAdmin.declareQueue(couponQueue);
+        this.amqpAdmin.declareExchange(couponExchange);
+        this.amqpAdmin.declareBinding(couponBiding);
+
+        Queue pixModelQueue = this.fila(RabbitmqQueues.PIX_QUEUE);
+        DirectExchange pixModelExchange = this.directExchange();
+        Binding pixModelBiding = this.binding(cartQueue, cartExchange);
+
+        this.amqpAdmin.declareQueue(pixModelQueue);
+        this.amqpAdmin.declareExchange(pixModelExchange);
+        this.amqpAdmin.declareBinding(pixModelBiding);
+
+        Queue paypalModelQueue = this.fila(RabbitmqQueues.PAYPAL_QUEUE);
+        DirectExchange paypalModelExchange = this.directExchange();
+        Binding paypalModelBiding = this.binding(cartQueue, cartExchange);
+
+        this.amqpAdmin.declareQueue(paypalModelQueue);
+        this.amqpAdmin.declareExchange(paypalModelExchange);
+        this.amqpAdmin.declareBinding(paypalModelBiding);
+
+        Queue paymentModelQueue = this.fila(RabbitmqQueues.PAYMENT_QUEUE);
+        DirectExchange paymentModelExchange = this.directExchange();
+        Binding paymentModelBiding = this.binding(cartQueue, cartExchange);
+
+        this.amqpAdmin.declareQueue(paymentModelQueue);
+        this.amqpAdmin.declareExchange(paymentModelExchange);
+        this.amqpAdmin.declareBinding(paymentModelBiding);
+
+        Queue invoiceModelQueue = this.fila(RabbitmqQueues.INVOICE_QUEUE);
+        DirectExchange invoiceModelExchange = this.directExchange();
+        Binding invoiceModelBiding = this.binding(cartQueue, cartExchange);
+
+        this.amqpAdmin.declareQueue(invoiceModelQueue);
+        this.amqpAdmin.declareExchange(invoiceModelExchange);
+        this.amqpAdmin.declareBinding(invoiceModelBiding);
+
+        Queue cardModelQueue = this.fila(RabbitmqQueues.CARD_QUEUE);
+        DirectExchange cardModelExchange = this.directExchange();
+        Binding cardModelBiding = this.binding(cartQueue, cartExchange);
+
+        this.amqpAdmin.declareQueue(cardModelQueue);
+        this.amqpAdmin.declareExchange(cardModelExchange);
+        this.amqpAdmin.declareBinding(cardModelBiding);
+
+        Queue boletoModelQueue = this.fila(RabbitmqQueues.BOLETO_QUEUE);
+        DirectExchange boletoModelExchange = this.directExchange();
+        Binding boletoModelBiding = this.binding(cartQueue, cartExchange);
+
+        this.amqpAdmin.declareQueue(boletoModelQueue);
+        this.amqpAdmin.declareExchange(boletoModelExchange);
+        this.amqpAdmin.declareBinding(boletoModelBiding);
     }
 }
