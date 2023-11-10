@@ -16,5 +16,11 @@ public class RabbitmqQueues {
     public static final String INVOICE_QUEUE = "INVOICE";
     public static final String CARD_QUEUE = "CARD";
     public static final String BOLETO_QUEUE = "BOLETO";
+    public static final String SKU_QUEUE = "SKU";
+    public static final String PRODUCT_QUEUE = "PRODUCT";
+    public static final String MEDIA_QUEUE = "MEDIA";
+    public static final String KEY_WORD_QUEUE = "KEY_WORD";
+    public static final String CATEGORY_QUEUE = "CATEGORY";
+    public static final String ATTRIBUTE_QUEUE = "ATTRIBUTE";
 
 }
