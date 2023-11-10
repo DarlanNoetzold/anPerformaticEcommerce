@@ -46,5 +46,37 @@ public class RabbitMQConection {
         this.amqpAdmin.declareQueue(orderQueue);
         this.amqpAdmin.declareExchange(orderExchange);
         this.amqpAdmin.declareBinding(orderBiding);
+
+        Queue customerQueue = this.fila(RabbitmqQueues.CUSTOMER_QUEUE);
+        DirectExchange customerExchange = this.directExchange();
+        Binding customerBiding = this.binding(cartQueue, cartExchange);
+
+        this.amqpAdmin.declareQueue(customerQueue);
+        this.amqpAdmin.declareExchange(customerExchange);
+        this.amqpAdmin.declareBinding(customerBiding);
+
+        Queue commerceItemQueue = this.fila(RabbitmqQueues.COMMERCE_ITEM_QUEUE);
+        DirectExchange commerceItemExchange = this.directExchange();
+        Binding commerceItemBiding = this.binding(cartQueue, cartExchange);
+
+        this.amqpAdmin.declareQueue(commerceItemQueue);
+        this.amqpAdmin.declareExchange(commerceItemExchange);
+        this.amqpAdmin.declareBinding(commerceItemBiding);
+
+        Queue addressQueue = this.fila(RabbitmqQueues.ADDRESS_QUEUE);
+        DirectExchange addressExchange = this.directExchange();
+        Binding addressBiding = this.binding(cartQueue, cartExchange);
+
+        this.amqpAdmin.declareQueue(addressQueue);
+        this.amqpAdmin.declareExchange(addressExchange);
+        this.amqpAdmin.declareBinding(addressBiding);
+
+        Queue shippingQueue = this.fila(RabbitmqQueues.SHIPPING_QUEUE);
+        DirectExchange shippingExchange = this.directExchange();
+        Binding shippingBiding = this.binding(cartQueue, cartExchange);
+
+        this.amqpAdmin.declareQueue(shippingQueue);
+        this.amqpAdmin.declareExchange(shippingExchange);
+        this.amqpAdmin.declareBinding(shippingBiding);
     }
 }
