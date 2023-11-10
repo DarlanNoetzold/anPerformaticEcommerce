@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.noetzold.anPerformaticEcommerce.model.catalog.CategoryModel;
 import tech.noetzold.anPerformaticEcommerce.service.catalog.CategoryModelService;
@@ -13,6 +14,7 @@ import java.util.Collection;
 import java.util.UUID;
 
 @CrossOrigin(origins = "*")
+@PreAuthorize("hasAnyRole('ADMIN', 'MANAGER')")
 @RestController
 @RequestMapping("/ecommerce/v1/catalog/category")
 public class CategoryModelController {
