@@ -28,6 +28,12 @@ public class PromotionModelService {
     }
 
     @Transactional
+    public PromotionModel updatePromotionModel(UUID id, PromotionModel promotionModel){
+        promotionModel.setPromoId(id);
+        return promotionModelRepository.save(promotionModel);
+    }
+    
+    @Transactional
     public PromotionModel savePromotionModel(PromotionModel promotionModel){
         return promotionModelRepository.save(promotionModel);
     }
