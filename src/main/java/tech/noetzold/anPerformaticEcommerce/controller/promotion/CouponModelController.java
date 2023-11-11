@@ -7,7 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.promotion.CouponModel;
+import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.promotion.CouponModelService;
 
 import java.util.Collection;
@@ -21,6 +23,9 @@ public class CouponModelController {
 
     @Autowired
     CouponModelService couponModelService;
+
+    @Autowired
+    private RabbitmqService rabbitmqService;
 
     private static final Logger logger = LoggerFactory.getLogger(CouponModelController.class);
 
@@ -54,8 +59,8 @@ public class CouponModelController {
             return new ResponseEntity<CouponModel>(HttpStatus.BAD_REQUEST);
         }
 
-        couponModel = couponModelService.saveCouponModel(couponModel);
-        logger.info("Create couponModel: " + couponModel);
+        rabbitmqService.sendMessage(RabbitmqQueues.COUPON_QUEUE, couponModel);
+        logger.info("Send message couponModel: " + couponModel);
         return new ResponseEntity<CouponModel>(couponModel, HttpStatus.CREATED);
     }
 
