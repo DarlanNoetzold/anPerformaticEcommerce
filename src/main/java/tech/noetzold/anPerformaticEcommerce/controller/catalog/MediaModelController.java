@@ -7,7 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.catalog.MediaModel;
+import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.catalog.MediaModelService;
 
 import java.util.Collection;
@@ -21,6 +23,9 @@ public class MediaModelController {
 
     @Autowired
     MediaModelService mediaModelService;
+
+    @Autowired
+    private RabbitmqService rabbitmqService;
 
     private static final Logger logger = LoggerFactory.getLogger(MediaModelController.class);
 
@@ -54,8 +59,8 @@ public class MediaModelController {
             return new ResponseEntity<MediaModel>(HttpStatus.BAD_REQUEST);
         }
 
-        mediaModel = mediaModelService.saveMediaModel(mediaModel);
-        logger.info("Create mediaModel: " + mediaModel);
+        rabbitmqService.sendMessage(RabbitmqQueues.MEDIA_QUEUE,mediaModel);
+        logger.info("Send message mediaModel: " + mediaModel);
         return new ResponseEntity<MediaModel>(mediaModel, HttpStatus.CREATED);
     }
 
