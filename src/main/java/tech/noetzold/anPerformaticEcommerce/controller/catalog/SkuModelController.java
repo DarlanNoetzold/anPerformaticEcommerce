@@ -7,7 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.catalog.SkuModel;
+import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.catalog.SkuModelService;
 
 import java.util.Collection;
@@ -21,6 +23,9 @@ public class SkuModelController {
 
     @Autowired
     SkuModelService skuModelService;
+
+    @Autowired
+    private RabbitmqService rabbitmqService;
 
     private static final Logger logger = LoggerFactory.getLogger(SkuModelController.class);
 
@@ -54,8 +59,8 @@ public class SkuModelController {
             return new ResponseEntity<SkuModel>(HttpStatus.BAD_REQUEST);
         }
 
-        skuModel = skuModelService.saveSkuModel(skuModel);
-        logger.info("Create skuModel: " + skuModel);
+        rabbitmqService.sendMessage(RabbitmqQueues.SKU_QUEUE, skuModel);
+        logger.info("Send message skuModel: " + skuModel);
         return new ResponseEntity<SkuModel>(skuModel, HttpStatus.CREATED);
     }
 
