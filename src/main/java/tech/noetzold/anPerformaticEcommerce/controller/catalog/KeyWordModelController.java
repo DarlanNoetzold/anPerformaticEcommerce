@@ -7,7 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.catalog.KeyWordModel;
+import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.catalog.KeyWordModelService;
 
 import java.util.Collection;
@@ -21,6 +23,9 @@ public class KeyWordModelController {
 
     @Autowired
     KeyWordModelService keyWordModelService;
+
+    @Autowired
+    private RabbitmqService rabbitmqService;
 
     private static final Logger logger = LoggerFactory.getLogger(KeyWordModelController.class);
 
@@ -54,8 +59,8 @@ public class KeyWordModelController {
             return new ResponseEntity<KeyWordModel>(HttpStatus.BAD_REQUEST);
         }
 
-        keyWordModel = keyWordModelService.saveKeyWordModel(keyWordModel);
-        logger.info("Create keyWordModel: " + keyWordModel);
+        rabbitmqService.sendMessage(RabbitmqQueues.KEY_WORD_QUEUE, keyWordModel);
+        logger.info("Send message keyWordModel: " + keyWordModel);
         return new ResponseEntity<KeyWordModel>(keyWordModel, HttpStatus.CREATED);
     }
 
