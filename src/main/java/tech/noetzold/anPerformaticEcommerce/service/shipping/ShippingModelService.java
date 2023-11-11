@@ -28,6 +28,12 @@ public class ShippingModelService {
     }
 
     @Transactional
+    public ShippingModel updateShippingModel(UUID id, ShippingModel shippingModel){
+        shippingModel.setShippingId(id);
+        return shippingModelRepository.save(shippingModel);
+    }
+    
+    @Transactional
     public ShippingModel saveShippingModel(ShippingModel shippingModel){
         return shippingModelRepository.save(shippingModel);
     }
