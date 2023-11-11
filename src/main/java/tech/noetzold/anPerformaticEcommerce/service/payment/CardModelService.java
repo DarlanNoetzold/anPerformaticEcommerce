@@ -28,6 +28,12 @@ public class CardModelService {
     }
 
     @Transactional
+    public CardModel updateCardModel(UUID id, CardModel cardModel){
+        cardModel.setCardId(id);
+        return cardModelRepository.save(cardModel);
+    }
+    
+    @Transactional
     public CardModel saveCardModel(CardModel cardModel){
         return cardModelRepository.save(cardModel);
     }
