@@ -7,7 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.payment.PaymentModel;
+import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.payment.PaymentModelService;
 
 import java.util.Collection;
@@ -21,6 +23,9 @@ public class PaymentModelController {
 
     @Autowired
     PaymentModelService paymentModelService;
+
+    @Autowired
+    private RabbitmqService rabbitmqService;
 
     private static final Logger logger = LoggerFactory.getLogger(PaymentModelController.class);
 
@@ -54,8 +59,8 @@ public class PaymentModelController {
             return new ResponseEntity<PaymentModel>(HttpStatus.BAD_REQUEST);
         }
 
-        paymentModel = paymentModelService.savePaymentModel(paymentModel);
-        logger.info("Create paymentModel: " + paymentModel);
+        rabbitmqService.sendMessage(RabbitmqQueues.PAYMENT_QUEUE, paymentModel);
+        logger.info("Send message paymentModel: " + paymentModel);
         return new ResponseEntity<PaymentModel>(paymentModel, HttpStatus.CREATED);
     }
 
