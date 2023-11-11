@@ -47,6 +47,18 @@ public class ShopCartController {
         return new ResponseEntity<ShopCart>(shopCart, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<ShopCart> update(@RequestBody ShopCart shopCart, @PathVariable("id") String id) {
+        if (shopCart == null) {
+            logger.warn("shopCart is null");
+            return new ResponseEntity<ShopCart>(HttpStatus.BAD_REQUEST);
+        }
+
+        shopCart = shopCartService.updateShopCart(UUID.fromString(id), shopCart);
+        logger.info("Create shopCart: " + shopCart);
+        return new ResponseEntity<ShopCart>(shopCart, HttpStatus.CREATED);
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<ShopCart> save(@RequestBody ShopCart shopCart) {
         if (shopCart == null) {
