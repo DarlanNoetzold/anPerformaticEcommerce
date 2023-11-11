@@ -7,7 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.shipping.AddressModel;
+import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.shipping.AddressModelService;
 
 import java.util.Collection;
@@ -21,6 +23,9 @@ public class AddressModelController {
 
     @Autowired
     AddressModelService addressModelService;
+
+    @Autowired
+    private RabbitmqService rabbitmqService;
 
     private static final Logger logger = LoggerFactory.getLogger(AddressModelController.class);
 
@@ -54,8 +59,8 @@ public class AddressModelController {
             return new ResponseEntity<AddressModel>(HttpStatus.BAD_REQUEST);
         }
 
-        addressModel = addressModelService.saveAddressModel(addressModel);
-        logger.info("Create addressModel: " + addressModel);
+        rabbitmqService.sendMessage(RabbitmqQueues.ADDRESS_QUEUE, addressModel);
+        logger.info("Send message addressModel: " + addressModel);
         return new ResponseEntity<AddressModel>(addressModel, HttpStatus.CREATED);
     }
 
