@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import tech.noetzold.anPerformaticEcommerce.model.CustomerModel;
+import tech.noetzold.anPerformaticEcommerce.model.CustomerModel;
 import tech.noetzold.anPerformaticEcommerce.repository.CustomerModelRepository;
 
 import java.util.List;
@@ -27,6 +28,12 @@ public class CustomerModelService {
         return customerModelRepository.findById(id).orElse(null);
     }
 
+    @Transactional
+    public CustomerModel updateCustomerModel(UUID id, CustomerModel customerModel){
+        customerModel.setCustomerId(id);
+        return customerModelRepository.save(customerModel);
+    }
+    
     @Transactional
     public CustomerModel saveCustomerModel(CustomerModel customerModel){
         return customerModelRepository.save(customerModel);
