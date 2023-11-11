@@ -28,6 +28,12 @@ public class PaypalModelService {
     }
 
     @Transactional
+    public PaypalModel updatePaypalModel(UUID id, PaypalModel paypalModel){
+        paypalModel.setPaypalId(id);
+        return paypalModelRepository.save(paypalModel);
+    }
+    
+    @Transactional
     public PaypalModel savePaypalModel(PaypalModel paypalModel){
         return paypalModelRepository.save(paypalModel);
     }
