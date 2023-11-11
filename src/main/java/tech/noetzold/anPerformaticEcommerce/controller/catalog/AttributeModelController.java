@@ -7,7 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.catalog.AttributeModel;
+import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.catalog.AttributeModelService;
 
 import java.util.Collection;
@@ -21,6 +23,9 @@ public class AttributeModelController {
 
     @Autowired
     AttributeModelService attributeModelService;
+
+    @Autowired
+    private RabbitmqService rabbitmqService;
 
     private static final Logger logger = LoggerFactory.getLogger(AttributeModelController.class);
 
@@ -54,8 +59,8 @@ public class AttributeModelController {
             return new ResponseEntity<AttributeModel>(HttpStatus.BAD_REQUEST);
         }
 
-        attributeModel = attributeModelService.saveAttributeModel(attributeModel);
-        logger.info("Create attributeModel: " + attributeModel);
+        rabbitmqService.sendMessage(RabbitmqQueues.ATTRIBUTE_QUEUE, attributeModel);
+        logger.info("Send message attributeModel: " + attributeModel);
         return new ResponseEntity<AttributeModel>(attributeModel, HttpStatus.CREATED);
     }
 
