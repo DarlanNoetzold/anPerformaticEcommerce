@@ -27,6 +27,11 @@ public class ShopCartService {
         return shopCartRepository.findById(id).orElse(null);
     }
 
+    public ShopCart updateShopCart(UUID id, ShopCart shopCart){
+        shopCart.setShopCartId(id);
+        return shopCartRepository.save(shopCart);
+    }
+
     @Transactional
     public ShopCart saveShopCart(ShopCart shopCart){
         return shopCartRepository.save(shopCart);
