@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import tech.noetzold.anPerformaticEcommerce.model.shipping.AddressModel;
+import tech.noetzold.anPerformaticEcommerce.model.shipping.AddressModel;
 import tech.noetzold.anPerformaticEcommerce.repository.shipping.AddressModelRepository;
 
 import java.util.List;
@@ -25,6 +26,12 @@ public class AddressModelService {
     @Transactional
     public AddressModel findAddressModelById(UUID id){
         return addressModelRepository.findById(id).orElse(null);
+    }
+
+    @Transactional
+    public AddressModel updateAddressModel(UUID id, AddressModel addressModel){
+        addressModel.setAddressId(id);
+        return addressModelRepository.save(addressModel);
     }
 
     @Transactional
