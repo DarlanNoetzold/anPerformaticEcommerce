@@ -28,6 +28,12 @@ public class MediaModelService {
     }
 
     @Transactional
+    public MediaModel updateMediaModel(UUID id, MediaModel mediaModel){
+        mediaModel.setMediaId(id);
+        return mediaModelRepository.save(mediaModel);
+    }
+    
+    @Transactional
     public MediaModel saveMediaModel(MediaModel mediaModel){
         return mediaModelRepository.save(mediaModel);
     }
