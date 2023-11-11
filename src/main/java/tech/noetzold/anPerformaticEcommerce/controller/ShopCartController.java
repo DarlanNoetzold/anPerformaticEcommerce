@@ -7,7 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.ShopCart;
+import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.ShopCartService;
 
 import java.util.Collection;
@@ -21,6 +23,9 @@ public class ShopCartController {
 
     @Autowired
     ShopCartService shopCartService;
+
+    @Autowired
+    private RabbitmqService rabbitmqService;
 
     private static final Logger logger = LoggerFactory.getLogger(ShopCartController.class);
 
@@ -66,8 +71,8 @@ public class ShopCartController {
             return new ResponseEntity<ShopCart>(HttpStatus.BAD_REQUEST);
         }
 
-        shopCart = shopCartService.saveShopCart(shopCart);
-        logger.info("Create shopCart: " + shopCart);
+        rabbitmqService.sendMessage(RabbitmqQueues.SHOP_CART_QUEUE, shopCart);
+        logger.info("Send message shopCart: " + shopCart);
         return new ResponseEntity<ShopCart>(shopCart, HttpStatus.CREATED);
     }
 
