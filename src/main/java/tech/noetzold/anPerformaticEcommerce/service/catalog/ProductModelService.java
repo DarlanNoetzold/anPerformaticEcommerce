@@ -28,6 +28,12 @@ public class ProductModelService {
     }
 
     @Transactional
+    public ProductModel updateProductModel(UUID id, ProductModel productModel){
+        productModel.setProductId(id);
+        return productModelRepository.save(productModel);
+    }
+    
+    @Transactional
     public ProductModel saveProductModel(ProductModel productModel){
         return productModelRepository.save(productModel);
     }
