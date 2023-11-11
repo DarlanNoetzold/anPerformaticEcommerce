@@ -29,6 +29,12 @@ public class KeyWordModelService {
     }
 
     @Transactional
+    public KeyWordModel updateKeyWordModel(UUID id, KeyWordModel keyWordModel){
+        keyWordModel.setKeyWordId(id);
+        return keyWordModelRepository.save(keyWordModel);
+    }
+    
+    @Transactional
     public KeyWordModel saveKeyWordModel(KeyWordModel keyWordModel){
         return keyWordModelRepository.save(keyWordModel);
     }
