@@ -28,6 +28,12 @@ public class PaymentModelService {
     }
 
     @Transactional
+    public PaymentModel updatePaymentModel(UUID id, PaymentModel paymentModel){
+        paymentModel.setPaymentId(id);
+        return paymentModelRepository.save(paymentModel);
+    }
+    
+    @Transactional
     public PaymentModel savePaymentModel(PaymentModel paymentModel){
         return paymentModelRepository.save(paymentModel);
     }
