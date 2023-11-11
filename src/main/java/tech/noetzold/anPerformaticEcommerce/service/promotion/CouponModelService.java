@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import tech.noetzold.anPerformaticEcommerce.model.promotion.CouponModel;
+import tech.noetzold.anPerformaticEcommerce.model.promotion.CouponModel;
 import tech.noetzold.anPerformaticEcommerce.repository.promotion.CouponModelRepository;
 
 import java.util.List;
@@ -27,6 +28,12 @@ public class CouponModelService {
         return couponModelRepository.findById(id).orElse(null);
     }
 
+    @Transactional
+    public CouponModel updateCouponModel(UUID id, CouponModel couponModel){
+        couponModel.setCouponId(id);
+        return couponModelRepository.save(couponModel);
+    }
+    
     @Transactional
     public CouponModel saveCouponModel(CouponModel couponModel){
         return couponModelRepository.save(couponModel);
