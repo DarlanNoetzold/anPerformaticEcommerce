@@ -28,6 +28,12 @@ public class PixModelService {
     }
 
     @Transactional
+    public PixModel updatePixModel(UUID id, PixModel pixModel){
+        pixModel.setPixId(id);
+        return pixModelRepository.save(pixModel);
+    }
+    
+    @Transactional
     public PixModel savePixModel(PixModel pixModel){
         return pixModelRepository.save(pixModel);
     }
