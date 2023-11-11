@@ -7,7 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.promotion.PromotionModel;
+import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.promotion.PromotionModelService;
 
 import java.util.Collection;
@@ -21,6 +23,9 @@ public class PromotionModelController {
 
     @Autowired
     PromotionModelService promotionModelService;
+
+    @Autowired
+    private RabbitmqService rabbitmqService;
 
     private static final Logger logger = LoggerFactory.getLogger(PromotionModelController.class);
 
@@ -54,8 +59,8 @@ public class PromotionModelController {
             return new ResponseEntity<PromotionModel>(HttpStatus.BAD_REQUEST);
         }
 
-        promotionModel = promotionModelService.savePromotionModel(promotionModel);
-        logger.info("Create promotionModel: " + promotionModel);
+        rabbitmqService.sendMessage(RabbitmqQueues.PROMOTION_QUEUE, promotionModel);
+        logger.info("Send message promotionModel: " + promotionModel);
         return new ResponseEntity<PromotionModel>(promotionModel, HttpStatus.CREATED);
     }
 
