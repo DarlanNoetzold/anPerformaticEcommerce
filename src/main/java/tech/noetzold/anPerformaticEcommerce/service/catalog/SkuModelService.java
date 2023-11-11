@@ -28,6 +28,12 @@ public class SkuModelService {
     }
 
     @Transactional
+    public SkuModel updateSkuModel(UUID id, SkuModel skuModel){
+        skuModel.setSkuId(id);
+        return skuModelRepository.save(skuModel);
+    }
+    
+    @Transactional
     public SkuModel saveSkuModel(SkuModel skuModel){
         return skuModelRepository.save(skuModel);
     }
