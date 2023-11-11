@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import tech.noetzold.anPerformaticEcommerce.model.CommerceItem;
+import tech.noetzold.anPerformaticEcommerce.model.CommerceItem;
 import tech.noetzold.anPerformaticEcommerce.repository.CommerceItemRepository;
 
 import java.util.List;
@@ -27,6 +28,12 @@ public class CommerceItemService {
         return commerceItemRepository.findById(id).orElse(null);
     }
 
+    @Transactional
+    public CommerceItem updateCommerceItem(UUID id, CommerceItem commerceItem){
+        commerceItem.setCommerceItemId(id);
+        return commerceItemRepository.save(commerceItem);
+    }
+    
     @Transactional
     public CommerceItem saveCommerceItem(CommerceItem commerceItem){
         return commerceItemRepository.save(commerceItem);
