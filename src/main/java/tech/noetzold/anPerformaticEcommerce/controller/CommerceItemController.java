@@ -7,8 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.CommerceItem;
 import tech.noetzold.anPerformaticEcommerce.service.CommerceItemService;
+import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 
 import java.util.Collection;
 import java.util.UUID;
@@ -21,6 +23,9 @@ public class CommerceItemController {
 
     @Autowired
     CommerceItemService commerceItemService;
+
+    @Autowired
+    private RabbitmqService rabbitmqService;
 
     private static final Logger logger = LoggerFactory.getLogger(CommerceItemController.class);
 
@@ -54,8 +59,8 @@ public class CommerceItemController {
             return new ResponseEntity<CommerceItem>(HttpStatus.BAD_REQUEST);
         }
 
-        commerceItem = commerceItemService.saveCommerceItem(commerceItem);
-        logger.info("Create commerceItem: " + commerceItem);
+        rabbitmqService.sendMessage(RabbitmqQueues.COMMERCE_ITEM_QUEUE, commerceItem);
+        logger.info("Send message commerceItem: " + commerceItem);
         return new ResponseEntity<CommerceItem>(commerceItem, HttpStatus.CREATED);
     }
 
