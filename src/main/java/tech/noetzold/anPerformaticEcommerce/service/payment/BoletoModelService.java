@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import tech.noetzold.anPerformaticEcommerce.model.payment.paymentMethods.BoletoModel;
+import tech.noetzold.anPerformaticEcommerce.model.payment.paymentMethods.BoletoModel;
 import tech.noetzold.anPerformaticEcommerce.repository.payment.BoletoModelRepository;
 
 import java.util.List;
@@ -27,6 +28,12 @@ public class BoletoModelService {
         return boletoModelRepository.findById(id).orElse(null);
     }
 
+    @Transactional
+    public BoletoModel updateBoletoModel(UUID id, BoletoModel boletoModel){
+        boletoModel.setBoletoId(id);
+        return boletoModelRepository.save(boletoModel);
+    }
+    
     @Transactional
     public BoletoModel saveBoletoModel(BoletoModel boletoModel){
         return boletoModelRepository.save(boletoModel);
