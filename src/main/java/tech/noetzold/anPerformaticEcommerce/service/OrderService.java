@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import tech.noetzold.anPerformaticEcommerce.model.Order;
+import tech.noetzold.anPerformaticEcommerce.model.Order;
 import tech.noetzold.anPerformaticEcommerce.repository.OrderRepository;
 
 import java.util.List;
@@ -27,6 +28,12 @@ public class OrderService {
         return orderRepository.findById(id).orElse(null);
     }
 
+    @Transactional
+    public Order updateOrder(UUID id, Order order){
+        order.setOrderId(id);
+        return orderRepository.save(order);
+    }
+    
     @Transactional
     public Order saveOrder(Order order){
         return orderRepository.save(order);
