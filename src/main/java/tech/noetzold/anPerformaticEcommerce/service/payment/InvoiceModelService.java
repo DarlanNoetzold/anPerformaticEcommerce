@@ -28,6 +28,12 @@ public class InvoiceModelService {
     }
 
     @Transactional
+    public InvoiceModel updateInvoiceModel(UUID id, InvoiceModel invoiceModel){
+        invoiceModel.setInvoiceId(id);
+        return invoiceModelRepository.save(invoiceModel);
+    }
+    
+    @Transactional
     public InvoiceModel saveInvoiceModel(InvoiceModel invoiceModel){
         return invoiceModelRepository.save(invoiceModel);
     }
