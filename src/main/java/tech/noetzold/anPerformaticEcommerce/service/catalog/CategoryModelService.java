@@ -28,6 +28,12 @@ public class CategoryModelService {
     }
 
     @Transactional
+    public CategoryModel updateCategoryModel(UUID id, CategoryModel categoryModel){
+        categoryModel.setCategoryId(id);
+        return categoryModelRepository.save(categoryModel);
+    }
+    
+    @Transactional
     public CategoryModel saveCategoryModel(CategoryModel categoryModel){
         return categoryModelRepository.save(categoryModel);
     }
