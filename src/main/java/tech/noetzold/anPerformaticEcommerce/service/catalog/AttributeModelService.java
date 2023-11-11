@@ -28,6 +28,12 @@ public class AttributeModelService {
     }
 
     @Transactional
+    public AttributeModel updateAttributeModel(UUID id, AttributeModel attributeModel){
+        attributeModel.setAttributeId(id);
+        return attributeModelRepository.save(attributeModel);
+    }
+    
+    @Transactional
     public AttributeModel saveAttributeModel(AttributeModel attributeModel){
         return attributeModelRepository.save(attributeModel);
     }
