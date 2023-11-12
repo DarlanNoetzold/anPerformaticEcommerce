@@ -52,6 +52,18 @@ public class CouponModelController {
         return new ResponseEntity<CouponModel>(couponModel, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<CouponModel> update(@RequestBody CouponModel couponModel, @PathVariable("id") String id) {
+        if (couponModel == null) {
+            logger.warn("couponModel is null");
+            return new ResponseEntity<CouponModel>(HttpStatus.BAD_REQUEST);
+        }
+
+        couponModel = couponModelService.updateCouponModel(UUID.fromString(id), couponModel);
+        logger.info("Create couponModel: " + couponModel);
+        return new ResponseEntity<CouponModel>(couponModel, HttpStatus.CREATED);
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<CouponModel> save(@RequestBody CouponModel couponModel) {
         if (couponModel == null) {
