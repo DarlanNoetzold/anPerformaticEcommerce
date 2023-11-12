@@ -52,6 +52,18 @@ public class OrderController {
         return new ResponseEntity<Order>(order, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Order> update(@RequestBody Order order, @PathVariable("id") String id) {
+        if (order == null) {
+            logger.warn("order is null");
+            return new ResponseEntity<Order>(HttpStatus.BAD_REQUEST);
+        }
+
+        order = orderService.updateOrder(UUID.fromString(id), order);
+        logger.info("Create order: " + order);
+        return new ResponseEntity<Order>(order, HttpStatus.CREATED);
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Order> save(@RequestBody Order order) {
         if (order == null) {
