@@ -9,6 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.catalog.CategoryModel;
+import tech.noetzold.anPerformaticEcommerce.model.catalog.CategoryModel;
 import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.catalog.CategoryModelService;
 
@@ -50,6 +51,18 @@ public class CategoryModelController {
         }
         logger.info("categoryModel "+categoryModel.getCategoryId()+" returned");
         return new ResponseEntity<CategoryModel>(categoryModel, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<CategoryModel> update(@RequestBody CategoryModel categoryModel, @PathVariable("id") String id) {
+        if (categoryModel == null) {
+            logger.warn("categoryModel is null");
+            return new ResponseEntity<CategoryModel>(HttpStatus.BAD_REQUEST);
+        }
+
+        categoryModel = categoryModelService.updateCategoryModel(UUID.fromString(id), categoryModel);
+        logger.info("Create categoryModel: " + categoryModel);
+        return new ResponseEntity<CategoryModel>(categoryModel, HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.POST)
