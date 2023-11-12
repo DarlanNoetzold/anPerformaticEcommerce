@@ -52,6 +52,18 @@ public class KeyWordModelController {
         return new ResponseEntity<KeyWordModel>(keyWordModel, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<KeyWordModel> update(@RequestBody KeyWordModel keyWordModel, @PathVariable("id") String id) {
+        if (keyWordModel == null) {
+            logger.warn("keyWordModel is null");
+            return new ResponseEntity<KeyWordModel>(HttpStatus.BAD_REQUEST);
+        }
+
+        keyWordModel = keyWordModelService.updateKeyWordModel(UUID.fromString(id), keyWordModel);
+        logger.info("Create keyWordModel: " + keyWordModel);
+        return new ResponseEntity<KeyWordModel>(keyWordModel, HttpStatus.CREATED);
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<KeyWordModel> save(@RequestBody KeyWordModel keyWordModel) {
         if (keyWordModel == null) {
