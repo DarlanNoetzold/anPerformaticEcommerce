@@ -9,6 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.catalog.AttributeModel;
+import tech.noetzold.anPerformaticEcommerce.model.catalog.AttributeModel;
 import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.catalog.AttributeModelService;
 
@@ -50,6 +51,18 @@ public class AttributeModelController {
         }
         logger.info("attributeModel "+attributeModel.getAttributeId()+" returned");
         return new ResponseEntity<AttributeModel>(attributeModel, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<AttributeModel> update(@RequestBody AttributeModel attributeModel, @PathVariable("id") String id) {
+        if (attributeModel == null) {
+            logger.warn("attributeModel is null");
+            return new ResponseEntity<AttributeModel>(HttpStatus.BAD_REQUEST);
+        }
+
+        attributeModel = attributeModelService.updateAttributeModel(UUID.fromString(id), attributeModel);
+        logger.info("Create attributeModel: " + attributeModel);
+        return new ResponseEntity<AttributeModel>(attributeModel, HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.POST)
