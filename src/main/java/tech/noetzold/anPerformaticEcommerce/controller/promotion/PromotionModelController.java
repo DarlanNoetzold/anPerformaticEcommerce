@@ -52,6 +52,18 @@ public class PromotionModelController {
         return new ResponseEntity<PromotionModel>(promotionModel, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<PromotionModel> update(@RequestBody PromotionModel promotionModel, @PathVariable("id") String id) {
+        if (promotionModel == null) {
+            logger.warn("promotionModel is null");
+            return new ResponseEntity<PromotionModel>(HttpStatus.BAD_REQUEST);
+        }
+
+        promotionModel = promotionModelService.updatePromotionModel(UUID.fromString(id), promotionModel);
+        logger.info("Create promotionModel: " + promotionModel);
+        return new ResponseEntity<PromotionModel>(promotionModel, HttpStatus.CREATED);
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<PromotionModel> save(@RequestBody PromotionModel promotionModel) {
         if (promotionModel == null) {
