@@ -52,6 +52,18 @@ public class MediaModelController {
         return new ResponseEntity<MediaModel>(mediaModel, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<MediaModel> update(@RequestBody MediaModel mediaModel, @PathVariable("id") String id) {
+        if (mediaModel == null) {
+            logger.warn("mediaModel is null");
+            return new ResponseEntity<MediaModel>(HttpStatus.BAD_REQUEST);
+        }
+
+        mediaModel = mediaModelService.updateMediaModel(UUID.fromString(id), mediaModel);
+        logger.info("Create mediaModel: " + mediaModel);
+        return new ResponseEntity<MediaModel>(mediaModel, HttpStatus.CREATED);
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<MediaModel> save(@RequestBody MediaModel mediaModel) {
         if (mediaModel == null) {
