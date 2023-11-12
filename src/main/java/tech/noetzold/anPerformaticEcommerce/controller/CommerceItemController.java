@@ -52,6 +52,18 @@ public class CommerceItemController {
         return new ResponseEntity<CommerceItem>(commerceItem, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<CommerceItem> update(@RequestBody CommerceItem commerceItem, @PathVariable("id") String id) {
+        if (commerceItem == null) {
+            logger.warn("commerceItem is null");
+            return new ResponseEntity<CommerceItem>(HttpStatus.BAD_REQUEST);
+        }
+
+        commerceItem = commerceItemService.updateCommerceItem(UUID.fromString(id), commerceItem);
+        logger.info("Create commerceItem: " + commerceItem);
+        return new ResponseEntity<CommerceItem>(commerceItem, HttpStatus.CREATED);
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<CommerceItem> save(@RequestBody CommerceItem commerceItem) {
         if (commerceItem == null) {
