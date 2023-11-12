@@ -9,6 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.CustomerModel;
+import tech.noetzold.anPerformaticEcommerce.model.CustomerModel;
 import tech.noetzold.anPerformaticEcommerce.service.CustomerModelService;
 import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 
@@ -50,6 +51,18 @@ public class CustomerModelController {
         }
         logger.info("customerModel "+customerModel.getCustomerId()+" returned");
         return new ResponseEntity<CustomerModel>(customerModel, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<CustomerModel> update(@RequestBody CustomerModel customerModel, @PathVariable("id") String id) {
+        if (customerModel == null) {
+            logger.warn("customerModel is null");
+            return new ResponseEntity<CustomerModel>(HttpStatus.BAD_REQUEST);
+        }
+
+        customerModel = customerModelService.updateCustomerModel(UUID.fromString(id), customerModel);
+        logger.info("Create customerModel: " + customerModel);
+        return new ResponseEntity<CustomerModel>(customerModel, HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.POST)
