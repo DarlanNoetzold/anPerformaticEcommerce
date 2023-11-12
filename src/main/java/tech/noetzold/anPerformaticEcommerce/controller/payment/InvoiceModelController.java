@@ -52,6 +52,18 @@ public class InvoiceModelController {
         return new ResponseEntity<InvoiceModel>(invoiceModel, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<InvoiceModel> update(@RequestBody InvoiceModel invoiceModel, @PathVariable("id") String id) {
+        if (invoiceModel == null) {
+            logger.warn("invoiceModel is null");
+            return new ResponseEntity<InvoiceModel>(HttpStatus.BAD_REQUEST);
+        }
+
+        invoiceModel = invoiceModelService.updateInvoiceModel(UUID.fromString(id), invoiceModel);
+        logger.info("Create invoiceModel: " + invoiceModel);
+        return new ResponseEntity<InvoiceModel>(invoiceModel, HttpStatus.CREATED);
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<InvoiceModel> save(@RequestBody InvoiceModel invoiceModel) {
         if (invoiceModel == null) {
