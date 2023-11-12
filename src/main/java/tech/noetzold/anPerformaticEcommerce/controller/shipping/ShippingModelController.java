@@ -9,7 +9,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.shipping.ShippingModel;
-import tech.noetzold.anPerformaticEcommerce.model.shipping.ShippingModel;
 import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.shipping.ShippingModelService;
 
@@ -51,6 +50,18 @@ public class ShippingModelController {
         }
         logger.info("shippingModel "+shippingModel.getShippingId()+" returned");
         return new ResponseEntity<ShippingModel>(shippingModel, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<ShippingModel> update(@RequestBody ShippingModel shippingModel, @PathVariable("id") String id) {
+        if (shippingModel == null) {
+            logger.warn("shippingModel is null");
+            return new ResponseEntity<ShippingModel>(HttpStatus.BAD_REQUEST);
+        }
+
+        shippingModel = shippingModelService.updateShippingModel(UUID.fromString(id), shippingModel);
+        logger.info("Create shippingModel: " + shippingModel);
+        return new ResponseEntity<ShippingModel>(shippingModel, HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.POST)
