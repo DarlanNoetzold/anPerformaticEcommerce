@@ -52,6 +52,18 @@ public class PaymentModelController {
         return new ResponseEntity<PaymentModel>(paymentModel, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<PaymentModel> update(@RequestBody PaymentModel paymentModel, @PathVariable("id") String id) {
+        if (paymentModel == null) {
+            logger.warn("paymentModel is null");
+            return new ResponseEntity<PaymentModel>(HttpStatus.BAD_REQUEST);
+        }
+
+        paymentModel = paymentModelService.updatePaymentModel(UUID.fromString(id), paymentModel);
+        logger.info("Create paymentModel: " + paymentModel);
+        return new ResponseEntity<PaymentModel>(paymentModel, HttpStatus.CREATED);
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<PaymentModel> save(@RequestBody PaymentModel paymentModel) {
         if (paymentModel == null) {
