@@ -52,6 +52,18 @@ public class SkuModelController {
         return new ResponseEntity<SkuModel>(skuModel, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<SkuModel> update(@RequestBody SkuModel skuModel, @PathVariable("id") String id) {
+        if (skuModel == null) {
+            logger.warn("skuModel is null");
+            return new ResponseEntity<SkuModel>(HttpStatus.BAD_REQUEST);
+        }
+
+        skuModel = skuModelService.updateSkuModel(UUID.fromString(id), skuModel);
+        logger.info("Create skuModel: " + skuModel);
+        return new ResponseEntity<SkuModel>(skuModel, HttpStatus.CREATED);
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<SkuModel> save(@RequestBody SkuModel skuModel) {
         if (skuModel == null) {
