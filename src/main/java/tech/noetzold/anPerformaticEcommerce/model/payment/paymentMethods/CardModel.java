@@ -1,13 +1,10 @@
 package tech.noetzold.anPerformaticEcommerce.model.payment.paymentMethods;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import tech.noetzold.model.enums.CardType;
+import tech.noetzold.anPerformaticEcommerce.model.payment.enums.CardType;
 
 import java.util.UUID;
 
@@ -18,6 +15,7 @@ import java.util.UUID;
 public class CardModel {
 
     @Id
+    @Column(name = "card_id")
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID cardId;
     private String cardNumber;
