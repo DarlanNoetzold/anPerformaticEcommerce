@@ -18,7 +18,7 @@ public class ShopCart {
     private UUID shopCartId;
 
     @OneToOne
-    private Order order;
+    private OrderModel order;
 
 
 }
