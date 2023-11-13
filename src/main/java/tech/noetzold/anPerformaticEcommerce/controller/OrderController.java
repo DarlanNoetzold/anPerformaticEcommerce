@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
-import tech.noetzold.anPerformaticEcommerce.model.Order;
+import tech.noetzold.anPerformaticEcommerce.model.OrderModel;
 import tech.noetzold.anPerformaticEcommerce.service.OrderModelService;
 import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 
@@ -30,50 +30,50 @@ public class OrderController {
     private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<Collection<Order>> getAll() {
-        Collection<Order> orders = orderModelService.findAllOrder();
+    public ResponseEntity<Collection<OrderModel>> getAll() {
+        Collection<OrderModel> orders = orderModelService.findAllOrder();
         if (orders.isEmpty()) {
             logger.warn("No order register");
-            return new ResponseEntity<Collection<Order>>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<Collection<OrderModel>>(HttpStatus.NO_CONTENT);
         }
 
         logger.info("orders "+orders.size()+" returned");
-        return new ResponseEntity<Collection<Order>>(orders, HttpStatus.OK);
+        return new ResponseEntity<Collection<OrderModel>>(orders, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Order> getOrderById(@PathVariable("id") String id) {
-        Order order = orderModelService.findOrderById(UUID.fromString(id));
+    public ResponseEntity<OrderModel> getOrderById(@PathVariable("id") String id) {
+        OrderModel order = orderModelService.findOrderById(UUID.fromString(id));
         if (order == null) {
             logger.warn("order not found");
-            return new ResponseEntity<Order>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<OrderModel>(HttpStatus.NOT_FOUND);
         }
         logger.info("order "+order.getOrderId()+" returned");
-        return new ResponseEntity<Order>(order, HttpStatus.OK);
+        return new ResponseEntity<OrderModel>(order, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Order> update(@RequestBody Order order, @PathVariable("id") String id) {
+    public ResponseEntity<OrderModel> update(@RequestBody OrderModel order, @PathVariable("id") String id) {
         if (order == null) {
             logger.warn("order is null");
-            return new ResponseEntity<Order>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<OrderModel>(HttpStatus.BAD_REQUEST);
         }
 
         order = orderModelService.updateOrder(UUID.fromString(id), order);
         logger.info("Create order: " + order);
-        return new ResponseEntity<Order>(order, HttpStatus.CREATED);
+        return new ResponseEntity<OrderModel>(order, HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Order> save(@RequestBody Order order) {
+    public ResponseEntity<OrderModel> save(@RequestBody OrderModel order) {
         if (order == null) {
             logger.warn("order is null");
-            return new ResponseEntity<Order>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<OrderModel>(HttpStatus.BAD_REQUEST);
         }
 
         rabbitmqService.sendMessage(RabbitmqQueues.ORDER_QUEUE, order);
         logger.info("Send message order: " + order);
-        return new ResponseEntity<Order>(order, HttpStatus.CREATED);
+        return new ResponseEntity<OrderModel>(order, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
