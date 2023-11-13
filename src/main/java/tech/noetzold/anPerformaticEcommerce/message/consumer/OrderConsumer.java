@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import tech.noetzold.anPerformaticEcommerce.controller.OrderController;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
-import tech.noetzold.anPerformaticEcommerce.model.Order;
+import tech.noetzold.anPerformaticEcommerce.model.OrderModel;
 import tech.noetzold.anPerformaticEcommerce.service.OrderModelService;
 
 @Component
@@ -24,7 +24,7 @@ public class OrderConsumer {
     @Transactional
     @RabbitListener(queues = RabbitmqQueues.ORDER_QUEUE)
     private void consumerOrder(String message) throws JsonProcessingException {
-        Order order = new ObjectMapper().readValue(message, Order.class);
+        OrderModel order = new ObjectMapper().readValue(message, OrderModel.class);
         try {
             orderModelService.saveOrder(order);
             logger.info("Consume order - " + order.toString());
