@@ -9,7 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.Order;
-import tech.noetzold.anPerformaticEcommerce.service.OrderService;
+import tech.noetzold.anPerformaticEcommerce.service.OrderModelService;
 import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 
 import java.util.Collection;
@@ -22,7 +22,7 @@ import java.util.UUID;
 public class OrderController {
 
     @Autowired
-    OrderService orderService;
+    OrderModelService orderModelService;
 
     @Autowired
     private RabbitmqService rabbitmqService;
@@ -31,7 +31,7 @@ public class OrderController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<Collection<Order>> getAll() {
-        Collection<Order> orders = orderService.findAllOrder();
+        Collection<Order> orders = orderModelService.findAllOrder();
         if (orders.isEmpty()) {
             logger.warn("No order register");
             return new ResponseEntity<Collection<Order>>(HttpStatus.NO_CONTENT);
@@ -43,7 +43,7 @@ public class OrderController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Order> getOrderById(@PathVariable("id") String id) {
-        Order order = orderService.findOrderById(UUID.fromString(id));
+        Order order = orderModelService.findOrderById(UUID.fromString(id));
         if (order == null) {
             logger.warn("order not found");
             return new ResponseEntity<Order>(HttpStatus.NOT_FOUND);
@@ -59,7 +59,7 @@ public class OrderController {
             return new ResponseEntity<Order>(HttpStatus.BAD_REQUEST);
         }
 
-        order = orderService.updateOrder(UUID.fromString(id), order);
+        order = orderModelService.updateOrder(UUID.fromString(id), order);
         logger.info("Create order: " + order);
         return new ResponseEntity<Order>(order, HttpStatus.CREATED);
     }
@@ -79,7 +79,7 @@ public class OrderController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> remover(@PathVariable("id") String id) {
         try {
-            orderService.deleteOrder(UUID.fromString(id));
+            orderModelService.deleteOrder(UUID.fromString(id));
         }catch (Exception ex){
             logger.error("Error to remove order", ex);
             return new ResponseEntity<String>(id, HttpStatus.BAD_GATEWAY);
