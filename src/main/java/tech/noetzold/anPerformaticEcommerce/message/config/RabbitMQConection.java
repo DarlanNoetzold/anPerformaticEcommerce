@@ -142,5 +142,53 @@ public class RabbitMQConection {
         this.amqpAdmin.declareQueue(boletoModelQueue);
         this.amqpAdmin.declareExchange(boletoModelExchange);
         this.amqpAdmin.declareBinding(boletoModelBiding);
+
+        Queue skuModelQueue = this.fila(RabbitmqQueues.SKU_QUEUE);
+        DirectExchange skuModelExchange = this.directExchange();
+        Binding skuModelBiding = this.binding(cartQueue, cartExchange);
+
+        this.amqpAdmin.declareQueue(skuModelQueue);
+        this.amqpAdmin.declareExchange(skuModelExchange);
+        this.amqpAdmin.declareBinding(skuModelBiding);
+
+        Queue productModelQueue = this.fila(RabbitmqQueues.PRODUCT_QUEUE);
+        DirectExchange productModelExchange = this.directExchange();
+        Binding productModelBiding = this.binding(cartQueue, cartExchange);
+
+        this.amqpAdmin.declareQueue(productModelQueue);
+        this.amqpAdmin.declareExchange(productModelExchange);
+        this.amqpAdmin.declareBinding(productModelBiding);
+
+        Queue mediaModelQueue = this.fila(RabbitmqQueues.MEDIA_QUEUE);
+        DirectExchange mediaModelExchange = this.directExchange();
+        Binding mediaModelBiding = this.binding(cartQueue, cartExchange);
+
+        this.amqpAdmin.declareQueue(mediaModelQueue);
+        this.amqpAdmin.declareExchange(mediaModelExchange);
+        this.amqpAdmin.declareBinding(mediaModelBiding);
+
+        Queue keyWordModelQueue = this.fila(RabbitmqQueues.KEY_WORD_QUEUE);
+        DirectExchange keyWordModelExchange = this.directExchange();
+        Binding keyWordModelBiding = this.binding(cartQueue, cartExchange);
+
+        this.amqpAdmin.declareQueue(keyWordModelQueue);
+        this.amqpAdmin.declareExchange(keyWordModelExchange);
+        this.amqpAdmin.declareBinding(keyWordModelBiding);
+
+        Queue categoryModelQueue = this.fila(RabbitmqQueues.CATEGORY_QUEUE);
+        DirectExchange categoryModelExchange = this.directExchange();
+        Binding categoryModelBiding = this.binding(cartQueue, cartExchange);
+
+        this.amqpAdmin.declareQueue(categoryModelQueue);
+        this.amqpAdmin.declareExchange(categoryModelExchange);
+        this.amqpAdmin.declareBinding(categoryModelBiding);
+
+        Queue attributeModelQueue = this.fila(RabbitmqQueues.ATTRIBUTE_QUEUE);
+        DirectExchange attributeModelExchange = this.directExchange();
+        Binding attributeModelBiding = this.binding(cartQueue, cartExchange);
+
+        this.amqpAdmin.declareQueue(attributeModelQueue);
+        this.amqpAdmin.declareExchange(attributeModelExchange);
+        this.amqpAdmin.declareBinding(attributeModelBiding);
     }
 }
