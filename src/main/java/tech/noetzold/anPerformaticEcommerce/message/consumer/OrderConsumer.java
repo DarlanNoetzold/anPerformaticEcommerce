@@ -11,13 +11,13 @@ import org.springframework.stereotype.Component;
 import tech.noetzold.anPerformaticEcommerce.controller.OrderController;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.Order;
-import tech.noetzold.anPerformaticEcommerce.service.OrderService;
+import tech.noetzold.anPerformaticEcommerce.service.OrderModelService;
 
 @Component
 public class OrderConsumer {
 
     @Autowired
-    OrderService orderService;
+    OrderModelService orderModelService;
 
     private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
 
@@ -26,7 +26,7 @@ public class OrderConsumer {
     private void consumerOrder(String message) throws JsonProcessingException {
         Order order = new ObjectMapper().readValue(message, Order.class);
         try {
-            orderService.saveOrder(order);
+            orderModelService.saveOrder(order);
             logger.info("Consume order - " + order.toString());
         }catch (Exception ex){
             logger.error("Error to consume cerate message for order - " + order.toString(), ex);
