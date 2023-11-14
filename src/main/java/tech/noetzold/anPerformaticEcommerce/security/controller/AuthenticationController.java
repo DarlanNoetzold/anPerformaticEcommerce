@@ -16,7 +16,7 @@ import tech.noetzold.anPerformaticEcommerce.security.service.AuthenticationServi
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/api/v1/auth")
+@RequestMapping("/ecommerce/v1/auth")
 @RequiredArgsConstructor
 public class AuthenticationController {
 
