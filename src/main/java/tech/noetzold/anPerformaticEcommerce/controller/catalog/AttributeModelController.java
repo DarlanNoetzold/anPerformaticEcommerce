@@ -11,7 +11,6 @@ import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.catalog.AttributeModel;
 import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.catalog.AttributeModelService;
-
 import java.util.Collection;
 import java.util.UUID;
 
