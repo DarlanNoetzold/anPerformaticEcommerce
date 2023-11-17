@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
+import tech.noetzold.anPerformaticEcommerce.model.catalog.CategoryModel;
 import tech.noetzold.anPerformaticEcommerce.model.catalog.KeyWordModel;
 import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.catalog.KeyWordModelService;
@@ -43,11 +44,14 @@ public class KeyWordModelController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<KeyWordModel> getKeyWordModelById(@PathVariable("id") String id) {
-        KeyWordModel keyWordModel = keyWordModelService.findKeyWordModelById(UUID.fromString(id));
-        if (keyWordModel == null) {
-            logger.warn("keyWordModel not found");
-            return new ResponseEntity<KeyWordModel>(HttpStatus.NOT_FOUND);
+        KeyWordModel keyWordModel = null;
+        try {
+            keyWordModel = keyWordModelService.findKeyWordModelById(UUID.fromString(id));
+        } catch (Exception exception){
+            logger.error("Error to get categoryModel");
+            return new ResponseEntity<KeyWordModel>(HttpStatus.BAD_REQUEST);
         }
+
         logger.info("keyWordModel "+keyWordModel.getKeyWordId()+" returned");
         return new ResponseEntity<KeyWordModel>(keyWordModel, HttpStatus.OK);
     }
