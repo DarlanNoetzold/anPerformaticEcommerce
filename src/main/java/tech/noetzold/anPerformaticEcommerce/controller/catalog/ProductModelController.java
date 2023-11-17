@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
+import tech.noetzold.anPerformaticEcommerce.model.catalog.CategoryModel;
+import tech.noetzold.anPerformaticEcommerce.model.catalog.KeyWordModel;
 import tech.noetzold.anPerformaticEcommerce.model.catalog.ProductModel;
 import tech.noetzold.anPerformaticEcommerce.model.catalog.ProductModel;
 import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
@@ -44,11 +46,14 @@ public class ProductModelController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<ProductModel> getProductModelById(@PathVariable("id") String id) {
-        ProductModel productModel = productModelService.findProductModelById(UUID.fromString(id));
-        if (productModel == null) {
-            logger.warn("productModel not found");
-            return new ResponseEntity<ProductModel>(HttpStatus.NOT_FOUND);
+        ProductModel productModel = null;
+        try {
+            productModel = productModelService.findProductModelById(UUID.fromString(id));
+        } catch (Exception exception){
+            logger.error("Error to get productModel");
+            return new ResponseEntity<ProductModel>(HttpStatus.BAD_REQUEST);
         }
+
         logger.info("productModel "+productModel.getProductId()+" returned");
         return new ResponseEntity<ProductModel>(productModel, HttpStatus.OK);
     }
