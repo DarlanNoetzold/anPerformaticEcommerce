@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
+import tech.noetzold.anPerformaticEcommerce.model.catalog.AttributeModel;
 import tech.noetzold.anPerformaticEcommerce.model.catalog.CategoryModel;
 import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.catalog.CategoryModelService;
@@ -43,11 +44,14 @@ public class CategoryModelController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<CategoryModel> getCategoryModelById(@PathVariable("id") String id) {
-        CategoryModel categoryModel = categoryModelService.findCategoryModelById(UUID.fromString(id));
-        if (categoryModel == null) {
-            logger.warn("categoryModel not found");
-            return new ResponseEntity<CategoryModel>(HttpStatus.NOT_FOUND);
+        CategoryModel categoryModel = null;
+        try {
+            categoryModel = categoryModelService.findCategoryModelById(UUID.fromString(id));
+        } catch (Exception exception){
+            logger.error("Error to get categoryModel");
+            return new ResponseEntity<CategoryModel>(HttpStatus.BAD_REQUEST);
         }
+
         logger.info("categoryModel "+categoryModel.getCategoryId()+" returned");
         return new ResponseEntity<CategoryModel>(categoryModel, HttpStatus.OK);
     }
