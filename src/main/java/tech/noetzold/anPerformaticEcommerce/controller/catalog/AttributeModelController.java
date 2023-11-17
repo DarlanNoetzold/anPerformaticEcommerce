@@ -9,6 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.catalog.AttributeModel;
+import tech.noetzold.anPerformaticEcommerce.model.catalog.MediaModel;
 import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.catalog.AttributeModelService;
 import java.util.Collection;
@@ -42,7 +43,14 @@ public class AttributeModelController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<AttributeModel> getAttributeModelById(@PathVariable("id") String id) {
-        AttributeModel attributeModel = attributeModelService.findAttributeModelById(UUID.fromString(id));
+        AttributeModel attributeModel = null;
+        try {
+            attributeModel = attributeModelService.findAttributeModelById(UUID.fromString(id));
+        } catch (Exception exception){
+            logger.error("Error to get attributeModel");
+            return new ResponseEntity<AttributeModel>(HttpStatus.BAD_REQUEST);
+        }
+
         if (attributeModel == null) {
             logger.warn("attributeModel not found");
             return new ResponseEntity<AttributeModel>(HttpStatus.NOT_FOUND);
