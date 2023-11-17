@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
+import tech.noetzold.anPerformaticEcommerce.model.catalog.ProductModel;
 import tech.noetzold.anPerformaticEcommerce.model.catalog.SkuModel;
 import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.catalog.SkuModelService;
@@ -43,11 +44,14 @@ public class SkuModelController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<SkuModel> getSkuModelById(@PathVariable("id") String id) {
-        SkuModel skuModel = skuModelService.findSkuModelById(UUID.fromString(id));
-        if (skuModel == null) {
-            logger.warn("skuModel not found");
-            return new ResponseEntity<SkuModel>(HttpStatus.NOT_FOUND);
+        SkuModel skuModel = null;
+        try {
+            skuModel = skuModelService.findSkuModelById(UUID.fromString(id));
+        } catch (Exception exception){
+            logger.error("Error to get skuModel");
+            return new ResponseEntity<SkuModel>(HttpStatus.BAD_REQUEST);
         }
+
         logger.info("skuModel "+skuModel.getSkuId()+" returned");
         return new ResponseEntity<SkuModel>(skuModel, HttpStatus.OK);
     }
