@@ -43,7 +43,13 @@ public class MediaModelController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<MediaModel> getMediaModelById(@PathVariable("id") String id) {
-        MediaModel mediaModel = mediaModelService.findMediaModelById(UUID.fromString(id));
+        MediaModel mediaModel = null;
+        try {
+            mediaModel = mediaModelService.findMediaModelById(UUID.fromString(id));
+        }catch (Exception exception){
+            logger.error("Error to get mediaModel");
+            return new ResponseEntity<MediaModel>(HttpStatus.BAD_REQUEST);
+        }
         if (mediaModel == null) {
             logger.warn("mediaModel not found");
             return new ResponseEntity<MediaModel>(HttpStatus.NOT_FOUND);
