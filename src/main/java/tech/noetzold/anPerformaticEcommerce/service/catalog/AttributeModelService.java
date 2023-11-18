@@ -10,8 +10,9 @@ import tech.noetzold.anPerformaticEcommerce.repository.catalog.AttributeModelRep
 import java.util.List;
 import java.util.UUID;
 
-@Service
+
 @Cacheable("attribute")
+@Service
 public class AttributeModelService {
 
     @Autowired
