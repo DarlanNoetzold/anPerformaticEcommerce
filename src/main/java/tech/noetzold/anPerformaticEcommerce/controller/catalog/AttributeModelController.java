@@ -77,7 +77,7 @@ public class AttributeModelController {
             return new ResponseEntity<AttributeModel>(HttpStatus.BAD_REQUEST);
         }
 
-        attributeModelService.saveAttributeModel(attributeModel);
+        rabbitmqService.sendMessage(RabbitmqQueues.ATTRIBUTE_QUEUE, attributeModel);
         logger.info("Send message attributeModel: " + attributeModel);
         return new ResponseEntity<AttributeModel>(attributeModel, HttpStatus.CREATED);
     }
