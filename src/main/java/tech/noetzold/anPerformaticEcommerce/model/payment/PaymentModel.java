@@ -15,6 +15,7 @@ import tech.noetzold.anPerformaticEcommerce.model.payment.paymentMethods.CardMod
 import tech.noetzold.anPerformaticEcommerce.model.payment.paymentMethods.PaypalModel;
 import tech.noetzold.anPerformaticEcommerce.model.payment.paymentMethods.PixModel;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -23,7 +24,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class PaymentModel {
+public class PaymentModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
