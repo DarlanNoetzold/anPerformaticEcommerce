@@ -22,7 +22,7 @@ public class MediaModelConsumer {
 
     @Transactional
     @RabbitListener(queues = RabbitmqQueues.MEDIA_QUEUE)
-    private void consumerMediaModel(String message) throws JsonProcessingException {
+    public void consumerMediaModel(String message) throws JsonProcessingException {
         MediaModel mediaModel = new ObjectMapper().readValue(message, MediaModel.class);
         try {
             mediaModelService.saveMediaModel(mediaModel);
