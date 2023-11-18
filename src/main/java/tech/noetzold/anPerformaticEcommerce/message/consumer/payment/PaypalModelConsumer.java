@@ -22,7 +22,7 @@ public class PaypalModelConsumer {
 
     @Transactional
     @RabbitListener(queues = RabbitmqQueues.PAYPAL_QUEUE)
-    private void consumerPaypalModel(String message) throws JsonProcessingException {
+    public void consumerPaypalModel(String message) throws JsonProcessingException {
         PaypalModel paypalModel = new ObjectMapper().readValue(message, PaypalModel.class);
         try {
             paypalModelService.savePaypalModel(paypalModel);
