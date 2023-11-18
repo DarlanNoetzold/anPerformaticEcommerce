@@ -23,7 +23,7 @@ public class ShopCartConsumer {
 
     @Transactional
     @RabbitListener(queues = RabbitmqQueues.SHOP_CART_QUEUE)
-    private void consumerShopCart(String message) throws JsonProcessingException {
+    public void consumerShopCart(String message) throws JsonProcessingException {
         ShopCart shopCart = new ObjectMapper().readValue(message, ShopCart.class);
         try {
             shopCartService.saveShopCart(shopCart);
