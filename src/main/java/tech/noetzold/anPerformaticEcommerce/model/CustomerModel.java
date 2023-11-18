@@ -9,6 +9,7 @@ import org.hibernate.annotations.FetchMode;
 import org.wildfly.common.annotation.NotNull;
 import tech.noetzold.anPerformaticEcommerce.model.payment.paymentMethods.CardModel;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -17,7 +18,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class CustomerModel {
+public class CustomerModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID customerId;
