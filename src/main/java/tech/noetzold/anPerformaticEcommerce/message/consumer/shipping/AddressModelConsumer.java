@@ -22,7 +22,7 @@ public class AddressModelConsumer {
 
     @Transactional
     @RabbitListener(queues = RabbitmqQueues.ADDRESS_QUEUE)
-    private void consumerAddressModel(String message) throws JsonProcessingException {
+    public void consumerAddressModel(String message) throws JsonProcessingException {
         AddressModel addressModel = new ObjectMapper().readValue(message, AddressModel.class);
         try {
             addressModelService.saveAddressModel(addressModel);
