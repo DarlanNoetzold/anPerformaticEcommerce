@@ -22,7 +22,7 @@ public class CommerceItemConsumer {
 
     @Transactional
     @RabbitListener(queues = RabbitmqQueues.COMMERCE_ITEM_QUEUE)
-    private void consumerCommerceItem(String message) throws JsonProcessingException {
+    public void consumerCommerceItem(String message) throws JsonProcessingException {
         CommerceItem commerceItem = new ObjectMapper().readValue(message, CommerceItem.class);
         try {
             commerceItemService.saveCommerceItem(commerceItem);
