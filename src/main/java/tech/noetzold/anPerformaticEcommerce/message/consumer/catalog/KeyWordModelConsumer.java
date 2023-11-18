@@ -22,7 +22,7 @@ public class KeyWordModelConsumer {
 
     @Transactional
     @RabbitListener(queues = RabbitmqQueues.KEY_WORD_QUEUE)
-    private void consumerKeyWordModel(String message) throws JsonProcessingException {
+    public void consumerKeyWordModel(String message) throws JsonProcessingException {
         KeyWordModel keyWordModel = new ObjectMapper().readValue(message, KeyWordModel.class);
         try {
             keyWordModelService.saveKeyWordModel(keyWordModel);
