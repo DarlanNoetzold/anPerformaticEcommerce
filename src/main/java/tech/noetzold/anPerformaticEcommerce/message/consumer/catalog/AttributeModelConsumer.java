@@ -22,7 +22,7 @@ public class AttributeModelConsumer {
 
     @Transactional
     @RabbitListener(queues = RabbitmqQueues.ATTRIBUTE_QUEUE)
-    private void consumerAttributeModel(String message) throws JsonProcessingException {
+    public void consumerAttributeModel(String message) throws JsonProcessingException {
         AttributeModel attributeModel = new ObjectMapper().readValue(message, AttributeModel.class);
         try {
             attributeModelService.saveAttributeModel(attributeModel);
