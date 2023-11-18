@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.wildfly.common.annotation.NotNull;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class SkuModel {
+public class SkuModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
