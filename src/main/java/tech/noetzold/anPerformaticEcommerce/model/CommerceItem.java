@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import tech.noetzold.anPerformaticEcommerce.model.catalog.SkuModel;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
@@ -14,7 +15,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class CommerceItem {
+public class CommerceItem implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
