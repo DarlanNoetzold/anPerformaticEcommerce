@@ -22,7 +22,7 @@ public class PromotionModelConsumer {
 
     @Transactional
     @RabbitListener(queues = RabbitmqQueues.PROMOTION_QUEUE)
-    private void consumerPromotionModel(String message) throws JsonProcessingException {
+    public void consumerPromotionModel(String message) throws JsonProcessingException {
         PromotionModel promotionModel = new ObjectMapper().readValue(message, PromotionModel.class);
         try {
             promotionModelService.savePromotionModel(promotionModel);
