@@ -22,7 +22,7 @@ public class PixModelConsumer {
 
     @Transactional
     @RabbitListener(queues = RabbitmqQueues.PIX_QUEUE)
-    private void consumerPixModel(String message) throws JsonProcessingException {
+    public void consumerPixModel(String message) throws JsonProcessingException {
         PixModel pixModel = new ObjectMapper().readValue(message, PixModel.class);
         try {
             pixModelService.savePixModel(pixModel);
