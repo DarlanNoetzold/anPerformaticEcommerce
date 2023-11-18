@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import tech.noetzold.anPerformaticEcommerce.model.promotion.enums.PromotionType;
 import tech.noetzold.anPerformaticEcommerce.model.promotion.enums.ValueType;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
@@ -17,7 +18,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class PromotionModel {
+public class PromotionModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
