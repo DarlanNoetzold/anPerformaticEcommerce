@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import tech.noetzold.anPerformaticEcommerce.model.payment.PaymentModel;
 import tech.noetzold.anPerformaticEcommerce.model.shipping.ShippingModel;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -15,7 +16,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class OrderModel {
+public class OrderModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
