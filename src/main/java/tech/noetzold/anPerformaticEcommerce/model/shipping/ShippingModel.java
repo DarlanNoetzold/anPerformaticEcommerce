@@ -8,13 +8,14 @@ import org.wildfly.common.annotation.NotNull;
 import tech.noetzold.anPerformaticEcommerce.model.shipping.enums.ShippingMethod;
 import tech.noetzold.anPerformaticEcommerce.model.shipping.enums.State;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class ShippingModel {
+public class ShippingModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
