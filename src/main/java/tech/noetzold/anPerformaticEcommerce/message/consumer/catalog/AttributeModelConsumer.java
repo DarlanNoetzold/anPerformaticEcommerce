@@ -28,7 +28,7 @@ public class AttributeModelConsumer {
             attributeModelService.saveAttributeModel(attributeModel);
             logger.info("Consume attributeModel - " + attributeModel.toString());
         }catch (Exception ex){
-            logger.error("Error to consume cerate message for attributeModel - " + attributeModel.toString(), ex);
+            logger.error("Error to consume create message for attributeModel - " + attributeModel.toString(), ex);
         }
 
     }
