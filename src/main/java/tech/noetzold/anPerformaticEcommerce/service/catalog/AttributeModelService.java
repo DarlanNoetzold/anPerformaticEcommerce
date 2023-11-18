@@ -33,8 +33,7 @@ public class AttributeModelService {
         attributeModel.setAttributeId(id);
         return attributeModelRepository.save(attributeModel);
     }
-    
-    @Transactional
+
     public AttributeModel saveAttributeModel(AttributeModel attributeModel){
         return attributeModelRepository.save(attributeModel);
     }
