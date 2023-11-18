@@ -6,13 +6,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import tech.noetzold.anPerformaticEcommerce.model.payment.enums.CardType;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class CardModel {
+public class CardModel implements Serializable {
 
     @Id
     @Column(name = "card_id")
