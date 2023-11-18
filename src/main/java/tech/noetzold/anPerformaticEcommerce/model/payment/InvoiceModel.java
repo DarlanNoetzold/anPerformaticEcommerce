@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.wildfly.common.annotation.NotNull;
 import tech.noetzold.anPerformaticEcommerce.model.CustomerModel;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -16,7 +17,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class InvoiceModel {
+public class InvoiceModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
