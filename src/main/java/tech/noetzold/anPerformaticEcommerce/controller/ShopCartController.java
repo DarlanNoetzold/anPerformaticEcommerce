@@ -9,6 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.ShopCart;
+import tech.noetzold.anPerformaticEcommerce.model.ShopCart;
 import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.ShopCartService;
 
@@ -43,10 +44,12 @@ public class ShopCartController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<ShopCart> getShopCartById(@PathVariable("id") String id) {
-        ShopCart shopCart = shopCartService.findShopCartById(UUID.fromString(id));
-        if (shopCart == null) {
-            logger.warn("shopCart not found");
-            return new ResponseEntity<ShopCart>(HttpStatus.NOT_FOUND);
+        ShopCart shopCart = null;
+        try {
+            shopCart = shopCartService.findShopCartById(UUID.fromString(id));
+        } catch (Exception exception){
+            logger.error("Error to get shopCart");
+            return new ResponseEntity<ShopCart>(HttpStatus.BAD_REQUEST);
         }
         logger.info("shopCart "+shopCart.getShopCartId()+" returned");
         return new ResponseEntity<ShopCart>(shopCart, HttpStatus.OK);
