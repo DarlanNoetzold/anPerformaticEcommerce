@@ -43,10 +43,12 @@ public class CommerceItemController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<CommerceItem> getCommerceItemById(@PathVariable("id") String id) {
-        CommerceItem commerceItem = commerceItemService.findCommerceItemById(UUID.fromString(id));
-        if (commerceItem == null) {
-            logger.warn("commerceItem not found");
-            return new ResponseEntity<CommerceItem>(HttpStatus.NOT_FOUND);
+        CommerceItem commerceItem = null;
+        try {
+            commerceItem = commerceItemService.findCommerceItemById(UUID.fromString(id));
+        } catch (Exception exception){
+            logger.error("Error to get commerceItem");
+            return new ResponseEntity<CommerceItem>(HttpStatus.BAD_REQUEST);
         }
         logger.info("commerceItem "+commerceItem.getCommerceItemId()+" returned");
         return new ResponseEntity<CommerceItem>(commerceItem, HttpStatus.OK);
