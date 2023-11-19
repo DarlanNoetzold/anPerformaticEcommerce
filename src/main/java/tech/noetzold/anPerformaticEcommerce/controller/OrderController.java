@@ -9,6 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.OrderModel;
+import tech.noetzold.anPerformaticEcommerce.model.OrderModel;
 import tech.noetzold.anPerformaticEcommerce.service.OrderModelService;
 import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 
@@ -43,13 +44,15 @@ public class OrderController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<OrderModel> getOrderById(@PathVariable("id") String id) {
-        OrderModel order = orderModelService.findOrderById(UUID.fromString(id));
-        if (order == null) {
-            logger.warn("order not found");
-            return new ResponseEntity<OrderModel>(HttpStatus.NOT_FOUND);
+        OrderModel orderModel = null;
+        try {
+            orderModel = orderModelService.findOrderById(UUID.fromString(id));
+        } catch (Exception exception){
+            logger.error("Error to get orderModel");
+            return new ResponseEntity<OrderModel>(HttpStatus.BAD_REQUEST);
         }
-        logger.info("order "+order.getOrderId()+" returned");
-        return new ResponseEntity<OrderModel>(order, HttpStatus.OK);
+        logger.info("order "+orderModel.getOrderId()+" returned");
+        return new ResponseEntity<OrderModel>(orderModel, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
