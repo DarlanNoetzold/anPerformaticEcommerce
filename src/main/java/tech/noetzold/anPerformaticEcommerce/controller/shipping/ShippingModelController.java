@@ -43,10 +43,12 @@ public class ShippingModelController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<ShippingModel> getShippingModelById(@PathVariable("id") String id) {
-        ShippingModel shippingModel = shippingModelService.findShippingModelById(UUID.fromString(id));
-        if (shippingModel == null) {
-            logger.warn("shippingModel not found");
-            return new ResponseEntity<ShippingModel>(HttpStatus.NOT_FOUND);
+        ShippingModel shippingModel = null;
+        try {
+            shippingModel = shippingModelService.findShippingModelById(UUID.fromString(id));
+        } catch (Exception exception){
+            logger.error("Error to get shippingModel");
+            return new ResponseEntity<ShippingModel>(HttpStatus.BAD_REQUEST);
         }
         logger.info("shippingModel "+shippingModel.getShippingId()+" returned");
         return new ResponseEntity<ShippingModel>(shippingModel, HttpStatus.OK);
