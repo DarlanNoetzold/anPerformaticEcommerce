@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
+import tech.noetzold.anPerformaticEcommerce.model.promotion.CouponModel;
 import tech.noetzold.anPerformaticEcommerce.model.promotion.PromotionModel;
 import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.promotion.PromotionModelService;
@@ -43,10 +44,12 @@ public class PromotionModelController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<PromotionModel> getPromotionModelById(@PathVariable("id") String id) {
-        PromotionModel promotionModel = promotionModelService.findPromotionModelById(UUID.fromString(id));
-        if (promotionModel == null) {
-            logger.warn("promotionModel not found");
-            return new ResponseEntity<PromotionModel>(HttpStatus.NOT_FOUND);
+        PromotionModel promotionModel = null;
+        try {
+            promotionModel = promotionModelService.findPromotionModelById(UUID.fromString(id));
+        } catch (Exception exception){
+            logger.error("Error to get promotionModel");
+            return new ResponseEntity<PromotionModel>(HttpStatus.BAD_REQUEST);
         }
         logger.info("promotionModel "+promotionModel.getPromoId()+" returned");
         return new ResponseEntity<PromotionModel>(promotionModel, HttpStatus.OK);
