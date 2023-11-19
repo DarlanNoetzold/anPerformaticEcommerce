@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
+import tech.noetzold.anPerformaticEcommerce.model.catalog.SkuModel;
 import tech.noetzold.anPerformaticEcommerce.model.payment.InvoiceModel;
 import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.payment.InvoiceModelService;
@@ -43,10 +44,12 @@ public class InvoiceModelController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<InvoiceModel> getInvoiceModelById(@PathVariable("id") String id) {
-        InvoiceModel invoiceModel = invoiceModelService.findInvoiceModelById(UUID.fromString(id));
-        if (invoiceModel == null) {
-            logger.warn("invoiceModel not found");
-            return new ResponseEntity<InvoiceModel>(HttpStatus.NOT_FOUND);
+        InvoiceModel invoiceModel = null;
+        try {
+            invoiceModel = invoiceModelService.findInvoiceModelById(UUID.fromString(id));
+        } catch (Exception exception){
+            logger.error("Error to get invoiceModel");
+            return new ResponseEntity<InvoiceModel>(HttpStatus.BAD_REQUEST);
         }
         logger.info("invoiceModel "+invoiceModel.getInvoiceId()+" returned");
         return new ResponseEntity<InvoiceModel>(invoiceModel, HttpStatus.OK);
