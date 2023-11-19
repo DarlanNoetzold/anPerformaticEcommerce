@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
+import tech.noetzold.anPerformaticEcommerce.model.payment.PaymentModel;
 import tech.noetzold.anPerformaticEcommerce.model.promotion.CouponModel;
 import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.promotion.CouponModelService;
@@ -43,10 +44,12 @@ public class CouponModelController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<CouponModel> getCouponModelById(@PathVariable("id") String id) {
-        CouponModel couponModel = couponModelService.findCouponModelById(UUID.fromString(id));
-        if (couponModel == null) {
-            logger.warn("couponModel not found");
-            return new ResponseEntity<CouponModel>(HttpStatus.NOT_FOUND);
+        CouponModel couponModel = null;
+        try {
+            couponModel = couponModelService.findCouponModelById(UUID.fromString(id));
+        } catch (Exception exception){
+            logger.error("Error to get couponModel");
+            return new ResponseEntity<CouponModel>(HttpStatus.BAD_REQUEST);
         }
         logger.info("couponModel "+couponModel.getCouponId()+" returned");
         return new ResponseEntity<CouponModel>(couponModel, HttpStatus.OK);
