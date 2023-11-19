@@ -9,7 +9,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.shipping.AddressModel;
-import tech.noetzold.anPerformaticEcommerce.model.shipping.AddressModel;
 import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.shipping.AddressModelService;
 
@@ -44,10 +43,12 @@ public class AddressModelController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<AddressModel> getAddressModelById(@PathVariable("id") String id) {
-        AddressModel addressModel = addressModelService.findAddressModelById(UUID.fromString(id));
-        if (addressModel == null) {
-            logger.warn("addressModel not found");
-            return new ResponseEntity<AddressModel>(HttpStatus.NOT_FOUND);
+        AddressModel addressModel = null;
+        try {
+            addressModel = addressModelService.findAddressModelById(UUID.fromString(id));
+        } catch (Exception exception){
+            logger.error("Error to get addressModel");
+            return new ResponseEntity<AddressModel>(HttpStatus.BAD_REQUEST);
         }
         logger.info("addressModel "+addressModel.getAddressId()+" returned");
         return new ResponseEntity<AddressModel>(addressModel, HttpStatus.OK);
