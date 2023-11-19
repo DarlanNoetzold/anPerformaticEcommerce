@@ -44,10 +44,12 @@ public class CustomerModelController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<CustomerModel> getCustomerModelById(@PathVariable("id") String id) {
-        CustomerModel customerModel = customerModelService.findCustomerModelById(UUID.fromString(id));
-        if (customerModel == null) {
-            logger.warn("customerModel not found");
-            return new ResponseEntity<CustomerModel>(HttpStatus.NOT_FOUND);
+        CustomerModel customerModel = null;
+        try {
+            customerModel = customerModelService.findCustomerModelById(UUID.fromString(id));
+        } catch (Exception exception){
+            logger.error("Error to get customerModel");
+            return new ResponseEntity<CustomerModel>(HttpStatus.BAD_REQUEST);
         }
         logger.info("customerModel "+customerModel.getCustomerId()+" returned");
         return new ResponseEntity<CustomerModel>(customerModel, HttpStatus.OK);
