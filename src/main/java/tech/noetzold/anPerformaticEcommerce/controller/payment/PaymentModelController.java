@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
+import tech.noetzold.anPerformaticEcommerce.model.payment.InvoiceModel;
 import tech.noetzold.anPerformaticEcommerce.model.payment.PaymentModel;
 import tech.noetzold.anPerformaticEcommerce.service.RabbitmqService;
 import tech.noetzold.anPerformaticEcommerce.service.payment.PaymentModelService;
@@ -43,10 +44,12 @@ public class PaymentModelController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<PaymentModel> getPaymentModelById(@PathVariable("id") String id) {
-        PaymentModel paymentModel = paymentModelService.findPaymentModelById(UUID.fromString(id));
-        if (paymentModel == null) {
-            logger.warn("paymentModel not found");
-            return new ResponseEntity<PaymentModel>(HttpStatus.NOT_FOUND);
+        PaymentModel paymentModel = null;
+        try {
+            paymentModel = paymentModelService.findPaymentModelById(UUID.fromString(id));
+        } catch (Exception exception){
+            logger.error("Error to get paymentModel");
+            return new ResponseEntity<PaymentModel>(HttpStatus.BAD_REQUEST);
         }
         logger.info("paymentModel "+paymentModel.getPaymentId()+" returned");
         return new ResponseEntity<PaymentModel>(paymentModel, HttpStatus.OK);
