@@ -34,7 +34,7 @@ public class SkuModelService {
     }
     
     @Transactional
-    public SkuModel saveSkuModel(SkuModel skuModel){
+    public SkuModel saveSkuModel(SkuModel skuModel) throws Exception{
         return skuModelRepository.save(skuModel);
     }
 
