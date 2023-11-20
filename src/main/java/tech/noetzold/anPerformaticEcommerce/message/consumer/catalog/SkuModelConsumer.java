@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.amqp.AmqpRejectAndDontRequeueException;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -29,6 +30,7 @@ public class SkuModelConsumer {
             logger.info("Consume skuModel - " + skuModel.toString());
         }catch (Exception ex){
             logger.error("Error to consume cerate message for skuModel - " + skuModel.toString(), ex);
+            throw new AmqpRejectAndDontRequeueException("Ops, an error! Message should go to DLQ");
         }
 
     }
