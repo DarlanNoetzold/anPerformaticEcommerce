@@ -1,10 +1,13 @@
 package tech.noetzold.anPerformaticEcommerce.message.config;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.listener.FatalExceptionStrategy;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.support.ListenerExecutionFailedException;
 import org.springframework.beans.factory.annotation.Autowired;
+import tech.noetzold.anPerformaticEcommerce.message.consumer.catalog.SkuModelConsumer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,6 +19,8 @@ public class CustomErrorStrategy implements FatalExceptionStrategy {
 
     @Autowired
     AmqpAdmin amqpAdmin;
+
+    private static final Logger logger = LoggerFactory.getLogger(SkuModelConsumer.class);
 
     private Queue deadLetterQueue(String queueName) {
         Map<String, Object> args = new HashMap<>();
@@ -44,6 +49,7 @@ public class CustomErrorStrategy implements FatalExceptionStrategy {
             ListenerExecutionFailedException executionFailedException = (ListenerExecutionFailedException) t;
             Message failedMessage = executionFailedException.getFailedMessage();
             String queueName = failedMessage.getMessageProperties().getConsumerQueue();
+            logger.error("Error to consume a message", t);
 
             rabbitTemplate.convertAndSend(queueName + ".dlq", failedMessage.getBody());
         }
