@@ -4,6 +4,6 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
 
 @Service
-@FeignClient(url= "http://localhost:5000" , name = "catalog")
-public class CatalogClient {
+@FeignClient(url= "http://localhost:5000/api/catalog/v1/attribute" , name = "catalog")
+public interface CatalogClient {
 }
