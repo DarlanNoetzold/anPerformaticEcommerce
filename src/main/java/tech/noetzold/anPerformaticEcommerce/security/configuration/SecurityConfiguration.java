@@ -35,7 +35,7 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @EnableMethodSecurity
 public class SecurityConfiguration {
 
-    private static final String[] WHITE_LIST_URL = {"/ecommerce/v1/auth/**",
+    private static final String[] WHITE_LIST_URL = {"/ecommerce/v1/auth/**", "/ecommerce/v1/auth/authenticate",
             "/v2/api-docs",
             "/v3/api-docs",
             "/v3/api-docs/**",
