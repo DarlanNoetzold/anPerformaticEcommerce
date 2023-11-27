@@ -9,8 +9,10 @@ import org.springframework.amqp.AmqpRejectAndDontRequeueException;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import tech.noetzold.anPerformaticEcommerce.client.ShippingClient;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
 import tech.noetzold.anPerformaticEcommerce.model.shipping.ShippingModel;
+import tech.noetzold.anPerformaticEcommerce.service.LoginService;
 import tech.noetzold.anPerformaticEcommerce.service.shipping.ShippingModelService;
 
 @Component
@@ -18,6 +20,12 @@ public class ShippingModelConsumer {
 
     @Autowired
     ShippingModelService shippingModelService;
+
+    @Autowired
+    ShippingClient shippingClient;
+
+    @Autowired
+    LoginService loginService;
 
     private static final Logger logger = LoggerFactory.getLogger(ShippingModelConsumer.class);
 
@@ -27,6 +35,7 @@ public class ShippingModelConsumer {
         ShippingModel shippingModel = new ObjectMapper().readValue(message, ShippingModel.class);
         try {
             shippingModelService.saveShippingModel(shippingModel);
+            shippingClient.saveShipping(loginService.getToken(), shippingModel);
             logger.info("Consume shippingModel - " + shippingModel.toString());
         }catch (Exception ex){
             logger.error("Error to consume cerate message for shippingModel - " + shippingModel.toString(), ex);
