@@ -18,8 +18,8 @@ import static tech.noetzold.anPerformaticEcommerce.security.user.Role.MANAGER;
 @EnableRabbit
 @EnableCaching
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")
-@ComponentScan({ "tech.noetzold.anPerformaticEcommerce.client.*", "tech.noetzold.anPerformaticEcommerce.security.service",
-		"tech.noetzold.anPerformaticEcommerce.security.configuration"  })
+@ComponentScan({ "tech.noetzold.anPerformaticEcommerce.client", "tech.noetzold.anPerformaticEcommerce.security.service",
+		"tech.noetzold.anPerformaticEcommerce.security.configuration", "tech.noetzold.anPerformaticEcommerce.security.controller"  })
 public class AnPerformaticEcommerceApplication {
 
 	public static void main(String[] args) {
