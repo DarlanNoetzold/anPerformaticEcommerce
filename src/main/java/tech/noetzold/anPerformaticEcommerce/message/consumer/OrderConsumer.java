@@ -11,7 +11,6 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import tech.noetzold.anPerformaticEcommerce.client.PaymentClient;
-import tech.noetzold.anPerformaticEcommerce.client.PromotionClient;
 import tech.noetzold.anPerformaticEcommerce.client.ShippingClient;
 import tech.noetzold.anPerformaticEcommerce.controller.OrderController;
 import tech.noetzold.anPerformaticEcommerce.message.config.RabbitmqQueues;
