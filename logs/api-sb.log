@@ -4361,3 +4361,28 @@ Caused by: org.springframework.amqp.AmqpRejectAndDontRequeueException: Ops, an e
 	at org.springframework.amqp.rabbit.listener.adapter.HandlerAdapter.invoke(HandlerAdapter.java:75)
 	at org.springframework.amqp.rabbit.listener.adapter.MessagingMessageListenerAdapter.invokeHandler(MessagingMessageListenerAdapter.java:277)
 	... 19 common frames omitted
+2023-11-28 09:09:54,050 INFO org.springframework.amqp.rabbit.listener.DirectMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#10-2] Successfully waited for consumers to finish.
+2023-11-28 09:09:54,050 INFO org.springframework.amqp.rabbit.listener.DirectMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#12-2] Successfully waited for consumers to finish.
+2023-11-28 09:09:54,050 INFO org.springframework.amqp.rabbit.listener.DirectMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#13-2] Successfully waited for consumers to finish.
+2023-11-28 09:09:54,051 INFO org.springframework.amqp.rabbit.listener.DirectMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#11-2] Successfully waited for consumers to finish.
+2023-11-28 09:09:54,052 INFO org.springframework.amqp.rabbit.listener.DirectMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] Successfully waited for consumers to finish.
+2023-11-28 09:09:54,053 INFO org.springframework.amqp.rabbit.listener.DirectMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] Successfully waited for consumers to finish.
+2023-11-28 09:09:54,054 INFO org.springframework.amqp.rabbit.listener.DirectMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] Successfully waited for consumers to finish.
+2023-11-28 09:09:54,055 INFO org.springframework.amqp.rabbit.listener.DirectMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] Successfully waited for consumers to finish.
+2023-11-28 09:09:54,056 INFO org.springframework.amqp.rabbit.listener.DirectMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-2] Successfully waited for consumers to finish.
+2023-11-28 09:09:54,057 INFO org.springframework.amqp.rabbit.listener.DirectMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-2] Successfully waited for consumers to finish.
+2023-11-28 09:09:54,058 INFO org.springframework.amqp.rabbit.listener.DirectMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#6-2] Successfully waited for consumers to finish.
+2023-11-28 09:09:54,059 INFO org.springframework.amqp.rabbit.listener.DirectMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#7-2] Successfully waited for consumers to finish.
+2023-11-28 09:09:54,060 INFO org.springframework.amqp.rabbit.listener.DirectMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#18-2] Successfully waited for consumers to finish.
+2023-11-28 09:09:54,061 INFO org.springframework.amqp.rabbit.listener.DirectMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#8-2] Successfully waited for consumers to finish.
+2023-11-28 09:09:54,061 INFO org.springframework.amqp.rabbit.listener.DirectMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#19-2] Successfully waited for consumers to finish.
+2023-11-28 09:09:54,063 INFO org.springframework.amqp.rabbit.listener.DirectMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#9-2] Successfully waited for consumers to finish.
+2023-11-28 09:09:54,064 INFO org.springframework.amqp.rabbit.listener.DirectMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#16-2] Successfully waited for consumers to finish.
+2023-11-28 09:09:54,064 INFO org.springframework.amqp.rabbit.listener.DirectMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#17-2] Successfully waited for consumers to finish.
+2023-11-28 09:09:54,065 INFO org.springframework.amqp.rabbit.listener.DirectMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#14-2] Successfully waited for consumers to finish.
+2023-11-28 09:09:54,066 INFO org.springframework.amqp.rabbit.listener.DirectMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#15-2] Successfully waited for consumers to finish.
+2023-11-28 09:09:54,067 INFO io.undertow [SpringApplicationShutdownHook] stopping server: Undertow - 2.3.10.Final
+2023-11-28 09:09:54,069 INFO io.undertow.servlet [SpringApplicationShutdownHook] Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-11-28 09:09:54,081 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-28 09:09:54,083 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-11-28 09:09:54,085 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
