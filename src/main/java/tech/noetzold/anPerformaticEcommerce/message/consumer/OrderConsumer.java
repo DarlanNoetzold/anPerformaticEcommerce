@@ -28,14 +28,17 @@ public class OrderConsumer {
     @Autowired
     OrderModelService orderModelService;
 
-    @Autowired
-    ShippingClient shippingClient;
+    private final ShippingClient shippingClient;
 
-    @Autowired
-    PaymentClient paymentClient;
+    private final PaymentClient paymentClient;
 
-    @Autowired
-    LoginService loginService;
+    private final LoginService loginService;
+
+    public OrderConsumer(ShippingClient shippingClient, PaymentClient paymentClient, LoginService loginService) {
+        this.shippingClient = shippingClient;
+        this.paymentClient = paymentClient;
+        this.loginService = loginService;
+    }
 
     private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
 
