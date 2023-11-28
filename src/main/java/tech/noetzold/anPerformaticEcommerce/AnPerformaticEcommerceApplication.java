@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
@@ -17,9 +18,8 @@ import static tech.noetzold.anPerformaticEcommerce.security.user.Role.MANAGER;
 @SpringBootApplication
 @EnableRabbit
 @EnableCaching
+@EnableFeignClients(basePackages = {"tech.noetzold.anPerformaticEcommerce.client"})
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")
-@ComponentScan({ "tech.noetzold.anPerformaticEcommerce.client", "tech.noetzold.anPerformaticEcommerce.security.service",
-		"tech.noetzold.anPerformaticEcommerce.security.configuration", "tech.noetzold.anPerformaticEcommerce.security.controller"  })
 public class AnPerformaticEcommerceApplication {
 
 	public static void main(String[] args) {
