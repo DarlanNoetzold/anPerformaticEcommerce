@@ -25,7 +25,7 @@ public class AuthenticationController {
 
     private final AuthenticationService service;
 
-    private static final Logger logger = LoggerFactory.getLogger(CommerceItemController.class);
+    private static final Logger logger = LoggerFactory.getLogger(AuthenticationController.class);
 
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(
