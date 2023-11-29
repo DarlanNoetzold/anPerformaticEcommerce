@@ -34,8 +34,8 @@ public class PromotionModelConsumer {
     public void consumerPromotionModel(String message) throws JsonProcessingException {
         PromotionModel promotionModel = new ObjectMapper().readValue(message, PromotionModel.class);
         try {
-            promotionModelService.savePromotionModel(promotionModel);
             promotionClient.savePromotion(loginService.getToken(), promotionModel);
+            promotionModelService.savePromotionModel(promotionModel);
             logger.info("Consume promotionModel - " + promotionModel.toString());
         }catch (Exception ex){
             logger.error("Error to consume cerate message for promotionModel - " + promotionModel.toString(), ex);
