@@ -21,10 +21,10 @@ public interface PaymentClient {
     List<PaymentModel> getAllByUserIdPayment(@RequestHeader(value = "Authorization", required = true) String authorizationHeader,@RequestParam String userId);
 
     @PostMapping()
-    PaymentModel savePayment(@RequestHeader(value = "Authorization", required = true) String authorizationHeader, @RequestBody PaymentModel shippingModel);
+    PaymentModel savePayment(@RequestHeader(value = "Authorization", required = true) String authorizationHeader, @RequestBody PaymentModel paymentModel);
 
     @PutMapping("/{id}")
-    PaymentModel updatePayment(@RequestHeader(value = "Authorization", required = true) String authorizationHeader, @RequestBody PaymentModel shippingModel,  @RequestParam String id);
+    PaymentModel updatePayment(@RequestHeader(value = "Authorization", required = true) String authorizationHeader, @RequestBody PaymentModel paymentModel,  @RequestParam String id);
 
     @DeleteMapping("/{id}")
     PaymentModel deletePayment(@RequestHeader(value = "Authorization", required = true) String authorizationHeader, @RequestParam String id);
