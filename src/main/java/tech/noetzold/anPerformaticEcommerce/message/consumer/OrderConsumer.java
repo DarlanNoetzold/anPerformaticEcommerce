@@ -44,8 +44,9 @@ public class OrderConsumer {
     public void consumerOrder(String message) throws JsonProcessingException {
         OrderModel order = new ObjectMapper().readValue(message, OrderModel.class);
         try {
-            orderModelService.saveOrder(order);
             sendShippingModel(order.getShippingModels());
+            sendPaymentModel(order.getPaymentModels());
+            orderModelService.saveOrder(order);
             logger.info("Consume order - " + order.toString());
         }catch (Exception ex){
             logger.error("Error to consume cerate message for order - " + order.toString(), ex);
