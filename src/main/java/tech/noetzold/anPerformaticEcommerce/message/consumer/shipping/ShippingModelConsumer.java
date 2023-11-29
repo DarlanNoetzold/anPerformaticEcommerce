@@ -34,8 +34,8 @@ public class ShippingModelConsumer {
     public void consumerShippingModel(String message) throws JsonProcessingException {
         ShippingModel shippingModel = new ObjectMapper().readValue(message, ShippingModel.class);
         try {
-            shippingModelService.saveShippingModel(shippingModel);
             shippingClient.saveShipping(loginService.getToken(), shippingModel);
+            shippingModelService.saveShippingModel(shippingModel);
             logger.info("Consume shippingModel - " + shippingModel.toString());
         }catch (Exception ex){
             logger.error("Error to consume cerate message for shippingModel - " + shippingModel.toString(), ex);
