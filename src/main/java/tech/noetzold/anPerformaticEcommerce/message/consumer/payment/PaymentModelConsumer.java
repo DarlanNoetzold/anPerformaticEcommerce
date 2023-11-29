@@ -34,8 +34,8 @@ public class PaymentModelConsumer {
     public void consumerPaymentModel(String message) throws JsonProcessingException {
         PaymentModel paymentModel = new ObjectMapper().readValue(message, PaymentModel.class);
         try {
-            paymentModelService.savePaymentModel(paymentModel);
             paymentClient.savePayment(loginService.getToken(), paymentModel);
+            paymentModelService.savePaymentModel(paymentModel);
             logger.info("Consume paymentModel - " + paymentModel.toString());
         }catch (Exception ex){
             logger.error("Error to consume cerate message for paymentModel - " + paymentModel.toString(), ex);
