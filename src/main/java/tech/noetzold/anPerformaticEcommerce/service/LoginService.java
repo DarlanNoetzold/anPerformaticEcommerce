@@ -8,6 +8,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tech.noetzold.anPerformaticEcommerce.client.LoginClient;
 
+import java.util.Base64;
+
 @Service
 public class LoginService {
 
@@ -23,17 +25,22 @@ public class LoginService {
     @Value("${token.grant-type}")
     private String grantType;
 
+    @Value("${token.client.username}")
+    private String usernameAPI;
+
+    @Value("${token.client.password}")
+    private String passwordAPI;
+
     public String getToken() throws JSONException {
         String requestBody = "username=" + username + "&password=" + password + "&grant_type=" + grantType;
 
-        String response = tokenClient.getToken(requestBody);
+        String credentials = Base64.getEncoder().encodeToString((usernameAPI + ":" + passwordAPI).getBytes());
+
+        String response = tokenClient.getToken(requestBody, "Basic " + credentials);
 
         String accessToken = extractAccessToken(response);
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", "Bearer " + accessToken);
-
-        return headers.toString();
+        return "Bearer " + accessToken;
     }
 
     private String extractAccessToken(String response) throws JSONException {
