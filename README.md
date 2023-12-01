@@ -13,7 +13,10 @@
 * FeignClient para comunicar com o API's Gateway.
 
 ## Projeto
-* Em desenvolvimento
+* A ideia do projeto é criar um Ecommerce performático, escalável e com uma implatação rápida. Por isso, foram cria 4 API Gateways cada um com um objetivo específico;
+* Este repositório tem o núcleo, o Back-End do Ecommerce desenvolvido em Spring Boot;
+* O núcleo foi desenvolvido em Spring porque este framework tem melhores resultados em tempo de resposta de requisição, proporcinando ao usuário um experiência agradável ao navegar no site;
+* Já os API Gateways foram desenvolvidos em Quarkus, pois este framework usa menos recurso e tem o uptime menor, proporcionando uma escalabilidade mais eficaz.
 
 ## Documentation
 * Postman: [https://documenter.getpostman.com/view/16000387/2s9YRGx9Hr](https://documenter.getpostman.com/view/16000387/2s9YRGx9Hr)
