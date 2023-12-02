@@ -17,6 +17,7 @@
 * Este repositório tem o núcleo, o Back-End do Ecommerce desenvolvido em Spring Boot;
 * O núcleo foi desenvolvido em Spring porque este framework tem melhores resultados em tempo de resposta de requisição, proporcinando ao usuário um experiência agradável ao navegar no site;
 * Já os API Gateways foram desenvolvidos em Quarkus, pois este framework usa menos recurso e tem o uptime menor, proporcionando uma escalabilidade mais eficaz.
+* Projeto ainda em Desenvolvimento...
 
 ## Documentation
 * Postman: [https://documenter.getpostman.com/view/16000387/2s9YRGx9Hr](https://documenter.getpostman.com/view/16000387/2s9YRGx9Hr)
