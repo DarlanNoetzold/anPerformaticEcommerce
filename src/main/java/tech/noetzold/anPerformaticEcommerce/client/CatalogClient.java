@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import tech.noetzold.anPerformaticEcommerce.model.payment.PaymentModel;
 
 @Service
-@FeignClient(url= "http://localhost:5000/api/catalog/v1/attribute" , name = "catalog")
+@FeignClient(url= "http://localhost:5000/api/catalog" , name = "catalog")
 public interface CatalogClient {
 
     @GetMapping("/sendUpdateNotification")
