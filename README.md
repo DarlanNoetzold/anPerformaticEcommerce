@@ -19,6 +19,12 @@
 * Já os API Gateways foram desenvolvidos em Quarkus, pois este framework usa menos recurso e tem o uptime menor, proporcionando uma escalabilidade mais eficaz.
 * Projeto ainda em Desenvolvimento...
 
+## Gateway's:
+* Payment: https://github.com/DarlanNoetzold/payment-gateway
+* Catalog: https://github.com/DarlanNoetzold/catalog-gateway
+* Shipping: https://github.com/DarlanNoetzold/shipping-gateway
+* Promotion: https://github.com/DarlanNoetzold/promotion-gateway
+
 ## Documentation
 * Postman: [https://documenter.getpostman.com/view/16000387/2s9YRGx9Hr](https://documenter.getpostman.com/view/16000387/2s9YRGx9Hr)
 
