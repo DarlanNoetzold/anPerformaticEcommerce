@@ -25,6 +25,8 @@
 * Shipping: https://github.com/DarlanNoetzold/shipping-gateway
 * Promotion: https://github.com/DarlanNoetzold/promotion-gateway
 
+## Testes de performance:
+
 ## Documentation
 * Postman: [https://documenter.getpostman.com/view/16000387/2s9YRGx9Hr](https://documenter.getpostman.com/view/16000387/2s9YRGx9Hr)
 
