@@ -26,7 +26,7 @@
 * Promotion: https://github.com/DarlanNoetzold/promotion-gateway
 
 ## Testes de performance:
-* Up time do ecommerce central desenvolvido em Spring e média de Up time dos gateways em Quarkus, dividido em antes e depois de melhorias de poerformance aplicadas:
+* Up time do ecommerce central desenvolvido em Spring e média de Up time dos gateways em Quarkus, dividido em antes e depois de melhorias de performance aplicadas:
 ![spring_vs_quarkus_uptime](https://github.com/DarlanNoetzold/anPerformaticEcommerce/assets/41628589/e35de3b8-a9aa-472f-a08b-3b0b1da07d31)
 
 * Regressão Linear da aplicação Spring com testes em diferentes quantidades de requisições paralelas analisando diferntes recursos:
