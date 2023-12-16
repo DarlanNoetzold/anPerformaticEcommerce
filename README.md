@@ -1,4 +1,5 @@
 # anPerformaticEcommerce
+Um Ecommerce performático, escalável e com uma implatação rápida. Desenvolvido com Spring e com Gateways contruidos com Quarkus.
 
 ## Desenvolvimento
 * Desenvolvido com Java 20;
