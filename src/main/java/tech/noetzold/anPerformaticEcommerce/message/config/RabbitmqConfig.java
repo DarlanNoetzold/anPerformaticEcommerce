@@ -1,4 +1,4 @@
-package tech.noetzold.anPerformaticEcommerce.message.config;
+package tech.noetzold.JVMParamsCompare.message.config;
 
 import org.springframework.amqp.core.AcknowledgeMode;
 import org.springframework.amqp.rabbit.config.DirectRabbitListenerContainerFactory;
