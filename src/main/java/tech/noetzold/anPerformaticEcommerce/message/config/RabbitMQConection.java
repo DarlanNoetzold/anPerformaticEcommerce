@@ -1,4 +1,4 @@
-package tech.noetzold.anPerformaticEcommerce.message.config;
+package tech.noetzold.JVMParamsCompare.message.config;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.amqp.core.*;
