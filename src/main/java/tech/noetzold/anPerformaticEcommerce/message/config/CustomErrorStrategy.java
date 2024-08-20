@@ -1,4 +1,4 @@
-package tech.noetzold.anPerformaticEcommerce.message.config;
+package tech.noetzold.JVMParamsCompare.message.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
