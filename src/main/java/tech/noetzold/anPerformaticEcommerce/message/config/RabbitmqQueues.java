@@ -1,4 +1,4 @@
-package tech.noetzold.anPerformaticEcommerce.message.config;
+package tech.noetzold.JVMParamsCompare.message.config;
 
 public class RabbitmqQueues {
 
